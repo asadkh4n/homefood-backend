@@ -1,0 +1,14 @@
+.container {
+    padding-top:7%;
+    padding-bottom: 10%;
+}
+
+.card {
+    width: 40%;
+    margin: 0;
+}
+
+/* overriding */
+.blue-gradient {
+    background: linear-gradient(135deg,#1C2331 0,#3F729B 100%);
+}
