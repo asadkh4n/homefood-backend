@@ -1,0 +1,161 @@
+<div id="createOfferForm" class="container flex-center">
+    <form (submit)="createOffer($event)" class="form-horizontal">
+        <fieldset>
+            <legend>New meal offer</legend>
+            <hr>
+            <div class="form-group">
+                <label for="inputEmail" class="col-lg-2 control-label">Title/Name</label>
+                <div class="col-lg-10">
+                    <input type="text" name="offer.title" [(ngModel)]="offer.title" class="form-control" id="inputTitle" placeholder="Title/Name">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputEmail" class="col-lg-2 control-label">Price</label>
+                <div class="col-lg-10">
+                    <input type="text" name="offer.price" [(ngModel)]="offer.price" class="form-control" id="inputPrice" placeholder="Price">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputEmail" class="col-lg-2 control-label">Ingredients</label>
+                <div class="col-lg-10">
+                    <input type="text" name="offer.ingredients" [(ngModel)]="offer.ingredients" class="form-control" id="inputIngredients" placeholder="Ingredients">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="select" class="col-lg-2 control-label">Delivery type</label>
+                <div class="col-lg-10">
+                    <select class="form-control" id="select" [(ngModel)]="offer.deliveryType" name="offer.deliveryType">
+                    <option *ngFor="let dt of deliveryTypes" [ngValue]="dt">{{dt}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputDate" class="col-lg-2 control-label">Handout date</label>
+                <div class="col-lg-10">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="yyyy-mm-dd" name="offer.handoutDatetimeStart" [(ngModel)]="offer.handoutDatetimeStart" ngbDatepicker #d="ngbDatepicker">
+                        <div class="input-group-addon" (click)="d.toggle()">
+                            <i class="fa fa-calendar" style="width: 1.2rem; height: 1rem; cursor: pointer;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="textArea" class="col-lg-2 control-label">Description</label>
+                <div class="col-lg-10">
+                    <textarea [(ngModel)]="offer.description" name="offer.description" class="form-control" rows="3" id="textArea"></textarea>
+                    <span class="help-block">Enter specifications and details of your offer.</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="options" class="col-lg-2 control-label">Preferences :</label>
+                <div class="col-lg-10">
+                    <div>
+                        <label>
+                        <input type="checkbox"
+                            name="options"
+                            value="!osknda"
+                            (change)="updateCheckedOptions(option, $event)"/>
+                            Vegan
+                    </label>
+                    </div>
+                    <div>
+                        <label>
+                        <input type="checkbox"
+                            name="options"
+                            value="!osknda"
+                            (change)="updateCheckedOptions(option, $event)"/>
+                            Vegeterian
+                    </label>
+                    </div>
+                    <div>
+                        <label>
+                        <input type="checkbox"
+                            name="options"
+                            value="!osknda"
+                            (change)="updateCheckedOptions(option, $event)"/>
+                            Halal
+                    </label>
+                    </div>
+                    <div>
+                        <label>
+                        <input type="checkbox"
+                            name="options"
+                            value="!osknda"
+                            (change)="updateCheckedOptions(option, $event)"/>
+                            Bio
+                    </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-info">Post the offer</button>
+            </div>
+
+        </fieldset>
+    </form>
+
+</div>
+
+<!--Form with header-->
+<!--<div class="container flex-center">
+    <div class="card">
+        <div class="card-block">
+            <form (submit)="createOffer($event)" #createOfferForm="ngForm">-->
+
+<!--<div class="form-header blue-gradient">
+                    <h3><i class="fa fa-"></i> Create food offer:</h3>
+                </div>
+
+                <div class="md-form">
+                    <i class="fa fa-user prefix"></i>
+                    <input type="text" id="form2" class="form-control" name="title" [(ngModel)]="offer.title">
+                    <label>Food title</label>
+                </div>
+                <div class="md-form">
+                    <i class="fa fa-user prefix"></i>
+                    <input type="text" id="form2" class="form-control" name="price" [(ngModel)]="offer.price">
+                    <label>Price</label>
+                </div>
+                <div class="md-form">
+                    <i class="fa fa-user prefix"></i>
+                    <input type="text" id="form2" class="form-control" name="ingredients" [(ngModel)]="offer.ingredients">
+                    <label>Ingredients</label>
+                </div>-->
+<!--
+                <div class="md-form">
+                    <i class="fa fa-envelope prefix"></i>
+                    <select [(ngModel)]="offer.deliveryType" name="deliveryType" class="mdb-select">
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="SellerDelivery">I will deliver the food</option>
+                        <option value="BuyerPickup">Buyer will pick up the food</option>
+                    </select>
+                    <label>Delivery type</label>
+                </div>-->
+
+
+<!--<div class="md-form">
+                    <textarea type="text" id="form76" class="md-textarea" [(ngModel)]="offer.description"></textarea>
+                    <label for="form76">Basic textarea</label>
+                </div>-->
+
+<!--<div class="text-center">
+                    <button type="submit" class="btn btn-indigo">Post the offer</button>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>-->
+
+<!--/Form with header-->
+
+<hr>

@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map'
 @Injectable()
 export class AuthenticationService {
   public token: string;
-  private baseUrl = 'http://localhost:3000/api/user';
+  private baseUrl = 'http://localhost:3001/api/user';
 
   constructor(private http: Http) {
     // set token if saved in local storage

@@ -7,7 +7,7 @@ import { User } from '../models/user';
 
 @Injectable()
 export class UserService {
-  private baseUrl = 'http://localhost:3000/api/user';
+  private baseUrl = 'http://localhost:3001/api/user';
   constructor(private http: Http) { }
   getCurrentUser() {
     return JSON.parse(localStorage.getItem('currentUser'));
