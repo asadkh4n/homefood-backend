@@ -7,6 +7,7 @@ import { AuthGuard } from './guards/auth.guard'
 import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { CreateofferComponent } from './components/createoffer/createoffer.component';
 
 const appRoutes: Routes = [
     {
@@ -25,6 +26,11 @@ const appRoutes: Routes = [
     {
         path: 'login',
         component: LoginComponent
+    },
+    {
+        path: 'createoffer',
+        component: CreateofferComponent,
+        canActivate: [AuthGuard]
     },
     // default to home
     { path: '**', redirectTo: '' }

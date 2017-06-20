@@ -1,0 +1,9 @@
+#main-container {
+    background: url('../../../assets/img/HomeFoodLandingPage.jpg') no-repeat;
+    background-size: cover;
+    height: 70vh;
+}
+
+.container {
+    color: black;
+}

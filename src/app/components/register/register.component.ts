@@ -22,6 +22,8 @@ export class RegisterComponent implements OnInit {
         if (success) {
           this.router.navigate(['/home']);
         }
+        else
+          alert("Error while creating offer!");
       });
   }
 }
