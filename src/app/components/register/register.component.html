@@ -1,20 +1,14 @@
 <!--Form with header-->
 
-<div class="container flex-center">
+<!--<div class="container flex-center">
   <div class="card">
     <div class="card-block">
       <form (submit)="registerUser($event)">
-        <!--Header-->
         <div class="form-header blue-gradient">
           <h3><i class="fa fa-user"></i> Register:</h3>
         </div>
 
-        <!--Body-->
-        <!--            <div class="md-form">
-                    <i class="fa fa-user prefix"></i>
-                    <input type="text" id="form3" class="form-control">
-                    <label for="form3">Your nam</label>
-                </div>-->
+        
         <div class="md-form">
           <i class="fa fa-user prefix"></i>
           <input type="text" id="form2" class="form-control" name="email" [(ngModel)]="user.firstName">
@@ -54,5 +48,138 @@
       </form>
     </div>
   </div>
-</div>
+</div>-->
 <!--/Form with header-->
+<div class="container">
+  <form class="form-horizontal" (submit)="registerUser($event)">
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <h2>Register New User</h2>
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 field-label-responsive">
+        <label for="firstname">First Name</label>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+            <input type="text" name="firstname" class="form-control" id="lastname" placeholder="John" [(ngModel)]="user.firstName" required autofocus>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-control-feedback">
+          <span class="text-danger align-middle">
+                            <!-- Put name validation error messages here -->
+                        </span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 field-label-responsive">
+        <label for="lastname">Last Name</label>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+            <input type="text" name="lastname" class="form-control" id="lastname" placeholder="Doe" [(ngModel)]="user.lastName" required autofocus>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-control-feedback">
+          <span class="text-danger align-middle">
+                            <!-- Put name validation error messages here -->
+                        </span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 field-label-responsive">
+        <label for="username">Username</label>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+            <input type="text" name="username" class="form-control" id="username" placeholder="johndoe" [(ngModel)]="user.username" required autofocus>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-control-feedback">
+          <span class="text-danger align-middle">
+                            <!-- Put name validation error messages here -->
+                        </span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 field-label-responsive">
+        <label for="email">E-Mail Address</label>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
+            <input type="text" name="email" class="form-control" id="email" placeholder="you@example.com" [(ngModel)]="user.email" required autofocus>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-control-feedback">
+          <span class="text-danger align-middle">
+                            <!-- Put e-mail validation error messages here -->
+                        </span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 field-label-responsive">
+        <label for="password">Password</label>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
+            <input type="password" name="password" class="form-control" id="password" [(ngModel)]="user.password" placeholder="Password" required>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-control-feedback">
+          <span class="text-danger align-middle">
+                        <!-- Put e-mail validation error messages here -->
+                        </span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 field-label-responsive">
+        <label for="password">Confirm Password</label>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <div class="input-group-addon" style="width: 2.6rem">
+              <i class="fa fa-repeat"></i>
+            </div>
+            <input type="password" name="password-confirmation" class="form-control" id="password-confirm" placeholder="Password" required>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <button type="submit" class="btn btn-success"><i class="fa fa-user-plus"></i> Register</button>
+      </div>
+    </div>
+  </form>
+
+</div>

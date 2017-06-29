@@ -7,4 +7,8 @@ export class Offer {
     handoutDatetimeStart: Date;
     handoutDatetimeEnd: Date;
     description: String;
+    vegan: Boolean;
+    vegetarian: Boolean;
+    halal: Boolean;
+    bio: Boolean;
 }

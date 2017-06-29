@@ -7,7 +7,7 @@ import { Offer } from '../models/offer';
 
 @Injectable()
 export class OfferService {
-  private baseUrl = 'http://localhost:3001/api/offer';
+  private baseUrl = 'http://localhost:3000/api/offer';
   constructor(private http: Http) {
    }
 
@@ -20,7 +20,7 @@ export class OfferService {
 
     console.log(currentUser);
 
-    //headers.append('Authorization', currentUser.token)
+    headers.append('Authorization', currentUser.token)
 
     return this.http.post(this.baseUrl, JSON.stringify(newOffer), { headers: headers })
     .map((response: Response) => {

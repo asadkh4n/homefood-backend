@@ -9,6 +9,7 @@ import { Offer } from '../../models/offer';
 import { UserService } from '../../services/user.service';
 import { OfferService } from '../../services/offer.service';
 
+
 declare var $: any;
 
 @Component({
@@ -44,9 +45,17 @@ export class CreateofferComponent implements OnInit {
     //           $('#handoutDatePicker').datetimepicker();
     // });
   }
+  convertDate(date: any) : Date {
+    return new Date(date.year, date.month, date.day);
+
+  } 
   createOffer(event) {
     //console.log('something hapened', this.offer.handoutDatetimeStart);
     //return;
+    //reassigning date to Date object
+    this.offer.handoutDatetimeStart = this.convertDate(this.offer.handoutDatetimeStart);
+    this.offer.handoutDatetimeEnd = this.convertDate(this.offer.handoutDatetimeEnd);
+
     this.offerService.createOffer(this.offer)
       .subscribe(success => {
         if (success) {

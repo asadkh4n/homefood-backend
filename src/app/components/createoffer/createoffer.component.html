@@ -33,17 +33,35 @@
                 </div>
             </div>
 
+            <!-- date time picker -->
             <div class="form-group">
-                <label for="inputDate" class="col-lg-2 control-label">Handout date</label>
+                <label for="inputDate" class="col-lg-2 control-label">Handout Start date</label>
                 <div class="col-lg-10">
                     <div class="input-group">
-                        <input class="form-control" placeholder="yyyy-mm-dd" name="offer.handoutDatetimeStart" [(ngModel)]="offer.handoutDatetimeStart" ngbDatepicker #d="ngbDatepicker">
-                        <div class="input-group-addon" (click)="d.toggle()">
+                        <input class="form-control" placeholder="yyyy-mm-dd" name="handoutDatetimeStart" [(ngModel)]="offer.handoutDatetimeStart"
+                            ngbDatepicker #d1="ngbDatepicker" (focus)="d1.open()">
+                        <div class="input-group-addon" (click)="d1.toggle()">
                             <i class="fa fa-calendar" style="width: 1.2rem; height: 1rem; cursor: pointer;"></i>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- date time picker -->
+            <div class="form-group">
+                <label for="inputDate" class="col-lg-2 control-label">Handout End date</label>
+                <div class="col-lg-10">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="yyyy-mm-dd" name="handoutDatetimeEnd" [(ngModel)]="offer.handoutDatetimeEnd"
+                            ngbDatepicker #d2="ngbDatepicker" (focus)="d2.open()">
+                        <div class="input-group-addon" (click)="d2.toggle()">
+                            <i class="fa fa-calendar" style="width: 1.2rem; height: 1rem; cursor: pointer;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
 
             <div class="form-group">
                 <label for="textArea" class="col-lg-2 control-label">Description</label>
@@ -59,36 +77,35 @@
                     <div>
                         <label>
                         <input type="checkbox"
-                            name="options"
-                            value="!osknda"
-                            (change)="updateCheckedOptions(option, $event)"/>
+                            name="vegan"
+                            [(ngModel)]="offer.vegan"/>
                             Vegan
                     </label>
                     </div>
                     <div>
                         <label>
                         <input type="checkbox"
-                            name="options"
-                            value="!osknda"
-                            (change)="updateCheckedOptions(option, $event)"/>
-                            Vegeterian
+                            name="vegetarian"
+                            [(ngModel)]="offer.vegetarian"
+                            />
+                            Vegetarian
                     </label>
                     </div>
                     <div>
                         <label>
                         <input type="checkbox"
-                            name="options"
-                            value="!osknda"
-                            (change)="updateCheckedOptions(option, $event)"/>
+                            name="halal"
+                            [(ngModel)]="offer.halal"
+                            />
                             Halal
                     </label>
                     </div>
                     <div>
                         <label>
                         <input type="checkbox"
-                            name="options"
-                            value="!osknda"
-                            (change)="updateCheckedOptions(option, $event)"/>
+                            name="bio"
+                            [(ngModel)]="offer.bio"
+                            />
                             Bio
                     </label>
                     </div>
@@ -104,58 +121,6 @@
 
 </div>
 
-<!--Form with header-->
-<!--<div class="container flex-center">
-    <div class="card">
-        <div class="card-block">
-            <form (submit)="createOffer($event)" #createOfferForm="ngForm">-->
 
-<!--<div class="form-header blue-gradient">
-                    <h3><i class="fa fa-"></i> Create food offer:</h3>
-                </div>
-
-                <div class="md-form">
-                    <i class="fa fa-user prefix"></i>
-                    <input type="text" id="form2" class="form-control" name="title" [(ngModel)]="offer.title">
-                    <label>Food title</label>
-                </div>
-                <div class="md-form">
-                    <i class="fa fa-user prefix"></i>
-                    <input type="text" id="form2" class="form-control" name="price" [(ngModel)]="offer.price">
-                    <label>Price</label>
-                </div>
-                <div class="md-form">
-                    <i class="fa fa-user prefix"></i>
-                    <input type="text" id="form2" class="form-control" name="ingredients" [(ngModel)]="offer.ingredients">
-                    <label>Ingredients</label>
-                </div>-->
-<!--
-                <div class="md-form">
-                    <i class="fa fa-envelope prefix"></i>
-                    <select [(ngModel)]="offer.deliveryType" name="deliveryType" class="mdb-select">
-                        <option value="" disabled selected>Choose your option</option>
-                        <option value="SellerDelivery">I will deliver the food</option>
-                        <option value="BuyerPickup">Buyer will pick up the food</option>
-                    </select>
-                    <label>Delivery type</label>
-                </div>-->
-
-
-<!--<div class="md-form">
-                    <textarea type="text" id="form76" class="md-textarea" [(ngModel)]="offer.description"></textarea>
-                    <label for="form76">Basic textarea</label>
-                </div>-->
-
-<!--<div class="text-center">
-                    <button type="submit" class="btn btn-indigo">Post the offer</button>
-                </div>
-
-
-            </form>
-        </div>
-    </div>
-</div>-->
-
-<!--/Form with header-->
 
 <hr>

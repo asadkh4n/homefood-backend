@@ -4,6 +4,8 @@ import {Routes, RouterModule} from '@angular/router';
 
 import { AuthGuard } from './guards/auth.guard'
 
+import { IsLoggedIn } from './resolves/is-logged-in.resolve'
+
 import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
@@ -31,9 +33,7 @@ const appRoutes: Routes = [
         path: 'createoffer',
         component: CreateofferComponent,
         canActivate: [AuthGuard]
-    },
-    // default to home
-    { path: '**', redirectTo: '' }
+    }
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(appRoutes);

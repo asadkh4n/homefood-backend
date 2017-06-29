@@ -16,7 +16,6 @@ import { LandingpageComponent } from './components/landingpage/landingpage.compo
 import { FooterComponent } from './components/footer/footer.component';
 import { CreateofferComponent } from './components/createoffer/createoffer.component';
 
-import { NgbdDatepickerPopup } from './components/datepicker-popup';
 
 import { AuthGuard } from './guards/auth.guard';
 import { AuthenticationService } from './services/authentication.service';
@@ -33,8 +32,7 @@ import { OfferService } from './services/offer.service';
     NavbarComponent,
     LandingpageComponent,
     FooterComponent,
-    CreateofferComponent,
-    NgbdDatepickerPopup
+    CreateofferComponent
   ],
   imports: [
     BrowserModule,
