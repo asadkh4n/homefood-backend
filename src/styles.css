@@ -5,3 +5,85 @@
 .pointer {
     cursor: pointer;
 }
+
+
+/* ################################  OLD VERSION #####################################################  */
+
+
+/* You can add global styles to this file, and also import other style files */
+
+h1 {
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 250%;
+}
+
+
+/* CUSTOM STYLES */
+
+.view {
+    background: url("http://mdbootstrap.com/img/Photos/Horizontal/Food/full%20page/5.jpg")no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100vh;
+}
+
+.full-bg-img {
+    color: #fff;
+}
+
+.title {
+    font-weight: 100;
+}
+
+.payment .fa:not(:first-child) {
+    margin-left: 10px;
+    color: rgba(255, 255, 255, .8);
+}
+
+
+/*input[type="text"]:focus:not([readonly]) {
+	border-color:#C00;
+	box-shadow:0 1px 0 0 #C00;
+	color:#fff;
+}*/
+
+
+/*input[type="text"]:not([readonly])+label {
+	color:rgba(255,255,255,.65);
+}*/
+
+
+/*input[type="text"]:focus:not([readonly])+label {
+	color:#fff;
+}*/
+
+.nopadding {
+    margin-top: 0 !important;
+}
+
+.navbar {
+    /*background-color: #49071c;*/
+    background-color: #3F729B;
+}
+
+footer.page-footer {
+    /*background-color: #49071c;*/
+    background-color: #3F729B;
+    margin-top: 2rem;
+}
+
+.pattern-4 {
+    background-attachment: fixed;
+}
+
+#overlay {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+#loadingDiv {
+    padding-top: 15%;
+    padding-bottom: 15%;
+}
