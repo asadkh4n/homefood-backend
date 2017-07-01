@@ -3,11 +3,14 @@ import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/RX';
 import 'rxjs/add/operator/map';
 
+import * as myGlobals from '../../globals';
+
 import { User } from '../models/user';
 
 @Injectable()
 export class UserService {
-  private baseUrl = 'http://localhost:3000/api/user';
+  private apiURL = myGlobals.baseAPIUrl + '/user';
+
   constructor(private http: Http) { }
   getCurrentUser() {
     return JSON.parse(localStorage.getItem('currentUser'));
@@ -16,7 +19,7 @@ export class UserService {
     console.log(newUser);
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post(`${this.baseUrl}/signup`, JSON.stringify(newUser), { headers: headers })
+    return this.http.post(`${this.apiURL}/signup`, JSON.stringify(newUser), { headers: headers })
       .map((response: Response) => {
         // login successful if there's a jwt token in the response
         const token = response.json() && response.json().token;

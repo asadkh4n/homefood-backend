@@ -1,13 +1,24 @@
 <div id="main-container" class="jumbotron">
     <div class="container topMarginContainer">
-        <h1 class="text-center"><strong> Hey wanna eat some homemade good quality food?</strong></h1>
-        <br>
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <a routerLink="/login" class="btn btn-primary btn-lg">Login</a>
-                <a routerLink="/register" class="btn btn-info btn-lg">Sign up!</a>
-            </div>
 
+        <div *ngIf="!authService.isLoggedIn(); else elseBlock">
+            <h1 class="text-center"><strong class="readableBackground"> Hey wanna eat some homemade good quality food?</strong></h1>
+            <br>
+
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <a routerLink="/login" class="btn btn-primary btn-lg">Login</a>
+                    <a routerLink="/register" class="btn btn-info btn-lg">Sign up!</a>
+                </div>
+
+            </div>
         </div>
+        <ng-template #elseBlock>
+            <h1 class="text-center"><strong class="readableBackground"> Hey <span class="usernameColor"> {{authService.getLoggedUser().username}} </span>, the meal is prepared, just order it! </strong></h1>
+            <br>
+        </ng-template>
+
+
+
     </div>
 </div>

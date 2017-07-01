@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { JsonpModule } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { routes } from './app.router';
 
@@ -16,12 +17,14 @@ import { LandingpageComponent } from './components/landingpage/landingpage.compo
 import { FooterComponent } from './components/footer/footer.component';
 import { CreateofferComponent } from './components/createoffer/createoffer.component';
 
+import { ToastModule } from 'ng2-toastr/ng2-toastr';
 
 import { AuthGuard } from './guards/auth.guard';
 import { AuthenticationService } from './services/authentication.service';
 import { UserService } from './services/user.service';
 import { OfferService } from './services/offer.service';
 
+import { FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,8 @@ import { OfferService } from './services/offer.service';
     NavbarComponent,
     LandingpageComponent,
     FooterComponent,
-    CreateofferComponent
+    CreateofferComponent,
+    FileSelectDirective
   ],
   imports: [
     BrowserModule,
@@ -41,15 +45,21 @@ import { OfferService } from './services/offer.service';
     JsonpModule,
     NgbModule.forRoot(),
     HttpModule,
-    routes
+    routes,
+    BrowserAnimationsModule,
+    ToastModule.forRoot()
     
   ],
   providers: [
     AuthGuard,
     AuthenticationService,
     UserService,
-    OfferService
+    OfferService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
+  exports:[
+    FileSelectDirective
+  ]
 })
 export class AppModule { }
