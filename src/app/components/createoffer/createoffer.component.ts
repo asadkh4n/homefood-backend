@@ -49,45 +49,6 @@ export class CreateofferComponent implements OnInit {
   ngOnInit() {
   }
 
-/*  fileChangeEvent(fileInput: any){
-        console.log("NEW FILE");
-        this.files = <Array<File>> fileInput.target.files;
-        console.log(this.files);
-  }*/
-
-  /*makeFileRequest(url: string, params: Array<string>, files: Array<File>) {
-      return new Promise((resolve, reject) => {
-          var formData: any = new FormData();
-          var xhr = new XMLHttpRequest();
-
-          for (var key in params) {
-            if (params.hasOwnProperty(key)) {
-              formData.append(key, params[key]);
-            }
-          }
-
-          alert()
-          for(var i = 0; i < files.length; i++) {
-              formData.append("uploads[]", files[i], files[i].name);
-          }
-
-          xhr.onreadystatechange = function () {
-              if (xhr.readyState == 4) {
-                  if (xhr.status == 200) {
-                      resolve(JSON.parse(xhr.response));
-                  } else {
-                      reject(xhr.response);
-                  }
-              }
-          }
-
-          var user = JSON.parse(localStorage.getItem('currentUser'));
-          xhr.open("POST", url, true);
-          xhr.setRequestHeader('Authorization', user.token);
-          xhr.send(formData);
-      });
-  }
-*/
   convertDate(date: any) : Date {
     if(!date) return;
     return new Date(date.year, date.month, date.day);
@@ -98,14 +59,8 @@ export class CreateofferComponent implements OnInit {
     this.offer.handoutDatetimeStart = this.convertDate(this.offer.handoutDatetimeStart);
     this.offer.handoutDatetimeEnd = this.convertDate(this.offer.handoutDatetimeEnd);
 
-/*    var json = JSON.stringify(this.offer);
-    var array = JSON.parse(json);
-
-    this.makeFileRequest("http://localhost:3000/api/offer", array, this.files).then((result) => {
-          console.log(result);
-      }, (error) => {
-          console.error(error);
-      });*/
+    var user = JSON.parse(localStorage.getItem('currentUser'));
+    this.offer.user = user.userId;
 
     this.offerService.createOffer(this.offer)
           .subscribe( data => {
@@ -115,7 +70,7 @@ export class CreateofferComponent implements OnInit {
             
             if(createdOffer._id)
             {
-                var user = JSON.parse(localStorage.getItem('currentUser'));
+                
                 this.uploader.setOptions({
                   headers: [{name: 'Authorization', value: user.token }],
                   url : "http://localhost:3000/api/offer/pictures/" + user.username + "/" + createdOffer._id
