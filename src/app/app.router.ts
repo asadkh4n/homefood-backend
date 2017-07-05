@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { CreateofferComponent } from './components/createoffer/createoffer.component';
+import { MyoffersComponent } from './components/myoffers/myoffers.component';
 
 const appRoutes: Routes = [
     {
@@ -32,6 +33,11 @@ const appRoutes: Routes = [
     {
         path: 'createoffer',
         component: CreateofferComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'myoffers',
+        component: MyoffersComponent,
         canActivate: [AuthGuard]
     }
 ];

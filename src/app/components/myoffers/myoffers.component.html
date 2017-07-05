@@ -1,0 +1,28 @@
+<div class="container" style="padding:20px;">
+
+    <div class="text-center">
+        <h4>My offers</h4>
+    </div>
+    <hr>
+
+    <div class="list-group">
+        <div class="search-results" infinite-scroll [infiniteScrollDistance]="1" [infiniteScrollUpDistance]="-1000000" [infiniteScrollThrottle]="300" (scrolled)="getOffers()">
+            <a *ngFor="let offer of offers" href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between row">
+                    <div class="col col-md-7">
+                        <h5 class="mb-1">{{ offer.title }}, <span>Price:</span> <span style="color:#4CAF50; font-size:24px;"> {{ offer.price }} € </span></h5>
+                        <span> <span>Published:</span> <strong> {{ offer.dateCreated  | date:'yMMMd' }}</strong></span>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col col-md-7">
+                        <p class="mb-1"> <strong> Description: </strong> <br> {{ offer.description }}</p>
+                        <small><strong> Ingredients: </strong> <br> {{ offer.ingredients }}</small>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+</div>

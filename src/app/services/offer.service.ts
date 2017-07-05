@@ -11,29 +11,30 @@ import { Offer } from '../models/offer';
 @Injectable()
 export class OfferService {
   private apiURL = myGlobals.baseAPIUrl + '/offer';
+  private headers: Headers;
+  private currentUser: any;
 
   constructor(private http: Http) {
+    this.headers = new Headers();
+
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.headers.append('Authorization', this.currentUser.token);
    }
 
   createOffer(newOffer: Offer) : Observable<Object> {
     
-    const headers = new Headers();
-    headers.append('Content-Type', 'application/json');
+    this.headers.append('Content-Type', 'application/json');
 
-    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    headers.append('Authorization', currentUser.token)
+    newOffer.user = this.currentUser.userId;
 
-    newOffer.user = currentUser.userId;
-
-    return this.http.post(this.apiURL, JSON.stringify(newOffer), { headers: headers })
+    return this.http.post(this.apiURL, JSON.stringify(newOffer), { headers: this.headers })
     .map((response: Response) => response.json())
     .catch((response: Response) => Observable.throw(response.status)) 
+  }
 
-/*      if(response.status == 201)
-        return true;
-      else
-        return false;*/
-    
+  getOffers(loadedElements: Number){
+    this.headers.set('LoadedElements', loadedElements.toString());
+    return this.http.get(this.apiURL, { headers: this.headers }).map(res => res.json());
   }
 
 }

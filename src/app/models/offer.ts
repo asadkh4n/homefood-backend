@@ -1,5 +1,5 @@
 export class Offer {
-    user: string;
+    user: String;
     title: String;
     price: Number;
     ingredients: String;

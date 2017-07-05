@@ -21,11 +21,11 @@ import * as myGlobals from '../../../globals';
 })
 export class CreateofferComponent implements OnInit {
   public uploader:FileUploader = new FileUploader({url: "http://localhost:3000/api/offer/pictures"});
-
+  
   offer: Offer = new Offer();
   deliveryTypes = [
         "Seller will deliver the food",
-         "Buyer will pickup the food"
+        "Buyer will pickup the food"
      ];
     selectedValue = null;
 
@@ -60,7 +60,7 @@ export class CreateofferComponent implements OnInit {
     this.offer.handoutDatetimeEnd = this.convertDate(this.offer.handoutDatetimeEnd);
 
     var user = JSON.parse(localStorage.getItem('currentUser'));
-    this.offer.user = user.userId;
+    //this.offer.user = user.userId;
 
     this.offerService.createOffer(this.offer)
           .subscribe( data => {

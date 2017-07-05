@@ -5,6 +5,9 @@ import { HttpModule } from '@angular/http';
 import { JsonpModule } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InfiniteScrollModule } from 'angular2-infinite-scroll';
+
+import { DatePipe } from '@angular/common';
 
 import { routes } from './app.router';
 
@@ -16,6 +19,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { LandingpageComponent } from './components/landingpage/landingpage.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CreateofferComponent } from './components/createoffer/createoffer.component';
+import { MyoffersComponent } from './components/myoffers/myoffers.component';
 
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
 
@@ -25,6 +29,9 @@ import { UserService } from './services/user.service';
 import { OfferService } from './services/offer.service';
 
 import { FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
+
+
+
 
 @NgModule({
   declarations: [
@@ -36,7 +43,8 @@ import { FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
     LandingpageComponent,
     FooterComponent,
     CreateofferComponent,
-    FileSelectDirective
+    FileSelectDirective,
+    MyoffersComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +55,8 @@ import { FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
     HttpModule,
     routes,
     BrowserAnimationsModule,
-    ToastModule.forRoot()
+    ToastModule.forRoot(),
+    InfiniteScrollModule
     
   ],
   providers: [
@@ -55,6 +64,7 @@ import { FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
     AuthenticationService,
     UserService,
     OfferService,
+    DatePipe
   ],
   bootstrap: [AppComponent],
 
