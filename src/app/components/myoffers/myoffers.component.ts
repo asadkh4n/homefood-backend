@@ -22,23 +22,21 @@ export class MyoffersComponent implements OnInit {
   constructor(private offerService: OfferService,
               private router: Router,
               private titleService: Title,
-              private datePipe: DatePipe) 
-              {
-                this.titleService.setTitle("My offers");
-              }
+              private datePipe: DatePipe) {
+    this.titleService.setTitle('My offers');
+  }
 
   ngOnInit() {
     this.getOffers();
   }
 
-  getOffers()
-  {
+  getOffers() {
       this.offerService.getOffers(this.loadedElementsNum).subscribe(offers => {
 
-        for (var i = 0; i < offers.length; i++) {
+        for (let i = 0; i < offers.length; i++) {
           this.offers.push(offers[i]);
-        } 
-        //this.offers = offers;
+        }
+        // this.offers = offers;
         this.loadedElementsNum += offers.length;
 
       })

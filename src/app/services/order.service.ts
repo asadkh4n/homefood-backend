@@ -6,11 +6,11 @@ import 'rxjs/add/operator/catch';
 
 import * as myGlobals from '../../globals';
 
-import { Offer } from '../models/offer';
+import { Order } from '../models/order';
 
 @Injectable()
-export class OfferService {
-  private apiURL = myGlobals.baseAPIUrl + '/offer';
+export class OrderService {
+  private apiURL = myGlobals.baseAPIUrl + '/order';
   private headers: Headers;
   private currentUser: any;
 
@@ -19,20 +19,9 @@ export class OfferService {
 
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.headers.append('Authorization', this.currentUser.token);
-   }
-
-  createOffer(newOffer: Offer) : Observable<Object> {
-
-    this.headers.append('Content-Type', 'application/json');
-
-    newOffer.user = this.currentUser.userId;
-
-    return this.http.post(this.apiURL, JSON.stringify(newOffer), { headers: this.headers })
-    .map((response: Response) => response.json())
-    .catch((response: Response) => Observable.throw(response.status))
   }
 
-  getOffers(loadedElements: Number) {
+  getOrders(loadedElements: Number) {
     this.headers.set('LoadedElements', loadedElements.toString());
     return this.http.get(this.apiURL, { headers: this.headers }).map(res => res.json());
   }

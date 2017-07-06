@@ -30,6 +30,7 @@ import { UserService } from './services/user.service';
 import { OfferService } from './services/offer.service';
 
 import { FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
+import {OrderService} from "./services/order.service";
 
 
 
@@ -66,6 +67,7 @@ import { FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
     AuthenticationService,
     UserService,
     OfferService,
+    OrderService,
     DatePipe
   ],
   bootstrap: [AppComponent],

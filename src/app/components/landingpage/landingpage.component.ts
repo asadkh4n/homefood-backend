@@ -11,7 +11,7 @@ import { AuthenticationService } from '../../services/authentication.service';
 export class LandingpageComponent implements OnInit {
 
   constructor(private titleService: Title, private authService: AuthenticationService) {
-        this.titleService.setTitle("Welcome to Home Food");
+        this.titleService.setTitle('Welcome to Home Food');
    }
 
   ngOnInit() {
