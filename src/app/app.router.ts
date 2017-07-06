@@ -39,6 +39,11 @@ const appRoutes: Routes = [
         path: 'myoffers',
         component: MyoffersComponent,
         canActivate: [AuthGuard]
+    },
+    {
+        path: 'transactionconfirmation',
+        component: TransactionConfirmationComponent,
+        canActivate: [AuthGuard]
     }
 ];
 

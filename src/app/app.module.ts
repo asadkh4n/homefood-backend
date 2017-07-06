@@ -20,6 +20,7 @@ import { LandingpageComponent } from './components/landingpage/landingpage.compo
 import { FooterComponent } from './components/footer/footer.component';
 import { CreateofferComponent } from './components/createoffer/createoffer.component';
 import { MyoffersComponent } from './components/myoffers/myoffers.component';
+import { TransactionConfirmationComponent } from './components/transactionconfirmation/transactionconfirmation.component';
 
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
 
@@ -44,7 +45,8 @@ import { FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
     FooterComponent,
     CreateofferComponent,
     FileSelectDirective,
-    MyoffersComponent
+    MyoffersComponent,
+    TransactionConfirmationComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +59,7 @@ import { FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
     BrowserAnimationsModule,
     ToastModule.forRoot(),
     InfiniteScrollModule
-    
+
   ],
   providers: [
     AuthGuard,
