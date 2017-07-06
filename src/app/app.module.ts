@@ -29,6 +29,7 @@ import { UserService } from './services/user.service';
 import { OfferService } from './services/offer.service';
 
 import { FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
+import { OfferdetailsComponent } from './components/offerdetails/offerdetails.component';
 
 
 
@@ -44,7 +45,8 @@ import { FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
     FooterComponent,
     CreateofferComponent,
     FileSelectDirective,
-    MyoffersComponent
+    MyoffersComponent,
+    OfferdetailsComponent
   ],
   imports: [
     BrowserModule,

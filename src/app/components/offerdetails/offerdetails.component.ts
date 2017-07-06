@@ -1,47 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-
-import { Router } from '@angular/router';
-import { Title } from '@angular/platform-browser';
-
 import { OfferService } from '../../services/offer.service';
-
-import { DatePipe } from '@angular/common';
-
+import { Router } from '@angular/router';
 @Component({
-  selector: 'app-myoffers',
-  templateUrl: './myoffers.component.html',
-  styleUrls: ['./myoffers.component.css']
+  selector: 'app-offerdetails',
+  templateUrl: './offerdetails.component.html',
+  styleUrls: ['./offerdetails.component.css']
 })
-export class MyoffersComponent implements OnInit {
+export class OfferdetailsComponent implements OnInit {
 
-  private offers: any[] = [];
-  loadedElementsNum = 0;
-  throttle = 300;
-  scrollDistance = 1;
-
+  private offer;
   constructor(private offerService: OfferService,
-              private router: Router,
-              private titleService: Title,
-              private datePipe: DatePipe) 
-              {
-                this.titleService.setTitle("My offers");
-              }
+              private router: Router
+              ) { }
 
   ngOnInit() {
-    this.getOffers();
+    var url = location.pathname;
+    var res = url.split("/");
+    var id = res[2];
+    this.getOffer(id);
   }
 
-  getOffers()
+  getOffer(id: String)
   {
-      this.offerService.getOffers(this.loadedElementsNum).subscribe(offers => {
+      this.offer =  this.offerService.getOffer(id);
+      console.log(this.offer.price);
+      this.offerService.getOffer(id).subscribe(offer => {
 
-        for (var i = 0; i < offers.length; i++) {
-          this.offers.push(offers[i]);
-        } 
-        //this.offers = offers;
-        this.loadedElementsNum += offers.length;
+        this.offer = offer;
 
       })
-  }
 
+
+  }
 }
