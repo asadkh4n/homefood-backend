@@ -20,12 +20,12 @@ import * as myGlobals from '../../../globals';
   styleUrls: ['./createoffer.component.css'],
 })
 export class CreateofferComponent implements OnInit {
-  public uploader: FileUploader = new FileUploader({url: 'http://localhost:3000/api/offer/pictures'});
-
+  public uploader:FileUploader = new FileUploader({url: "http://localhost:3000/api/offer/pictures"});
+  
   offer: Offer = new Offer();
   deliveryTypes = [
-        'Seller will deliver the food',
-        'Buyer will pickup the food'
+        "Seller will deliver the food",
+        "Buyer will pickup the food"
      ];
     selectedValue = null;
 
@@ -40,44 +40,49 @@ export class CreateofferComponent implements OnInit {
   constructor(private offerService: OfferService,
               private router: Router, private titleService: Title,
               public toastr: ToastsManager,
-              private vcr: ViewContainerRef) {
-    this.toastr.setRootViewContainerRef(vcr);
-    this.titleService.setTitle('Create new offer');
+              private vcr: ViewContainerRef) 
+  {
+            this.toastr.setRootViewContainerRef(vcr);
+            this.titleService.setTitle("Create new offer");
   }
 
   ngOnInit() {
   }
 
-  convertDate(date: any): Date {
-    if (!date) { return; }
+  convertDate(date: any) : Date {
+    if(!date) return;
     return new Date(date.year, date.month, date.day);
-  }
+  } 
   createOffer(event) {
-
-    // reassigning date to Date object
+    
+    //reassigning date to Date object
     this.offer.handoutDatetimeStart = this.convertDate(this.offer.handoutDatetimeStart);
     this.offer.handoutDatetimeEnd = this.convertDate(this.offer.handoutDatetimeEnd);
 
-    const user = JSON.parse(localStorage.getItem('currentUser'));
-    // this.offer.user = user.userId;
+    var user = JSON.parse(localStorage.getItem('currentUser'));
+    //this.offer.user = user.userId;
 
     this.offerService.createOffer(this.offer)
           .subscribe( data => {
 
-            const createdOffer = JSON.parse(JSON.stringify(data));
-            console.log(createdOffer._id);
-
-            if (createdOffer._id) {
-
+            var createdOffer = JSON.parse(JSON.stringify(data));
+            
+            if(createdOffer._id)
+            {
                 this.uploader.setOptions({
                   headers: [{name: 'Authorization', value: user.token }],
-                  url : 'http://localhost:3000/api/offer/pictures/' + user.username + '/' + createdOffer._id
+                  url : "http://localhost:3000/api/offer/pictures/" + user.username + "/" + createdOffer._id
                 });
 
                 this.uploader.uploadAll();
             }
 
-            this.toastr.success('You have sucessfully created offer!', null, { showCloseButton: true })
+            this.toastr.success('You have sucessfully created offer!', null, { showCloseButton: true });
+            
+            setTimeout(()=>{ 
+              this.router.navigate(['/myoffers']); 
+            }, 1000)
+            
             return;
       });
 /*      .subscribe( success => {
