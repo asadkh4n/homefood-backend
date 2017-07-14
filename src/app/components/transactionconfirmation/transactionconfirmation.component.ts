@@ -13,7 +13,7 @@ import { OrderService } from '../../services/order.service';
 
 export class TransactionConfirmationComponent implements OnInit {
 
-  private orders: any[] = [];
+  private order;
 
   constructor(private orderService: OrderService,
               private router: Router,
@@ -22,9 +22,18 @@ export class TransactionConfirmationComponent implements OnInit {
   }
 
   ngOnInit() {
+    const url = location.pathname;
+    const res = url.split('/');
+    const id = res[2];
+
+    this.getOrder(id);
   }
 
-  getOrders() {
+
+  getOrder(order_id: String) {
+    this.orderService.getOrder(order_id).subscribe(order => {
+      this.order = order;
+    })
   }
 
 }
