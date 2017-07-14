@@ -41,7 +41,7 @@ const appRoutes: Routes = [
         path: 'myoffers',
         component: MyoffersComponent,
         canActivate: [AuthGuard]
-    }, 
+    },
     {
         path: 'offerdetails/:id',
         component: OfferdetailsComponent,
