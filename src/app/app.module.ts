@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
@@ -20,15 +20,21 @@ import { LandingpageComponent } from './components/landingpage/landingpage.compo
 import { FooterComponent } from './components/footer/footer.component';
 import { CreateofferComponent } from './components/createoffer/createoffer.component';
 import { MyoffersComponent } from './components/myoffers/myoffers.component';
+import { TransactionConfirmationComponent } from './components/transactionconfirmation/transactionconfirmation.component';
 
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 import { AuthGuard } from './guards/auth.guard';
 import { AuthenticationService } from './services/authentication.service';
 import { UserService } from './services/user.service';
 import { OfferService } from './services/offer.service';
+import { FeedbackService } from './services/feedback.service';
+import { OrderService } from './services/order.service';
 
 import { FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
+import { OfferdetailsComponent } from './components/offerdetails/offerdetails.component';
+import { FeedbackComponent } from './components/feedback/feedback.component';
 
 
 
@@ -44,8 +50,11 @@ import { FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
     FooterComponent,
     CreateofferComponent,
     FileSelectDirective,
-    MyoffersComponent
-  ],
+    MyoffersComponent,
+    OfferdetailsComponent,
+    FeedbackComponent,
+    TransactionConfirmationComponent
+      ],
   imports: [
     BrowserModule,
     FormsModule,
@@ -56,19 +65,22 @@ import { FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
     routes,
     BrowserAnimationsModule,
     ToastModule.forRoot(),
+    CarouselModule.forRoot(),
     InfiniteScrollModule
-    
+
   ],
   providers: [
     AuthGuard,
     AuthenticationService,
     UserService,
     OfferService,
-    DatePipe
+    DatePipe,
+    FeedbackService,
+    OrderService
   ],
   bootstrap: [AppComponent],
 
-  exports:[
+  exports: [
     FileSelectDirective
   ]
 })

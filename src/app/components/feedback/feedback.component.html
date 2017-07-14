@@ -1,0 +1,10 @@
+<div class="container" align="left">
+<h5>Overall rating of {{username}}: {{sum}}</h5>
+<h5>Comments for {{username}}:</h5>
+  <table>
+   <tr *ngFor="let feedback of feedbacks1">
+    <td><i>{{ feedback.comment }}</i></td>
+    <td>{{ feedback.rating }}/10</td>
+   </tr>
+  </table>
+</div>
