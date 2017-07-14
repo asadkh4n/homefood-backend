@@ -6,7 +6,7 @@
     <hr>
 
     <div class="list-group">
-        <div class="search-results" infinite-scroll [infiniteScrollDistance]="1" [infiniteScrollUpDistance]="-1000000" [infiniteScrollThrottle]="300" (scrolled)="getOffers()">
+        <div class="search-results" infinite-scroll [infiniteScrollDistance]="1" [infiniteScrollUpDistance]="-1000000" [infiniteScrollThrottle]="300" (scrolled)="getAllOffers()">
             <a *ngFor="let offer of offers" href="#" class="list-group-item list-group-item-action flex-column align-items-start">
                 <div class="d-flex w-100 justify-content-between row">
                     <div class="col col-md-7">
