@@ -67,7 +67,6 @@ export class CreateofferComponent implements OnInit {
 
             var createdOffer = JSON.parse(JSON.stringify(data));
             console.log(createdOffer._id);
-            console.log("debug");
             if(createdOffer._id)
             {
                 

@@ -27,9 +27,11 @@ import { AuthGuard } from './guards/auth.guard';
 import { AuthenticationService } from './services/authentication.service';
 import { UserService } from './services/user.service';
 import { OfferService } from './services/offer.service';
+import { FeedbackService } from './services/feedback.service';
 
 import { FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
 import { OfferdetailsComponent } from './components/offerdetails/offerdetails.component';
+import { FeedbackComponent } from './components/feedback/feedback.component';
 
 
 
@@ -46,8 +48,9 @@ import { OfferdetailsComponent } from './components/offerdetails/offerdetails.co
     CreateofferComponent,
     FileSelectDirective,
     MyoffersComponent,
-    OfferdetailsComponent
-  ],
+    OfferdetailsComponent,
+    FeedbackComponent
+      ],
   imports: [
     BrowserModule,
     FormsModule,
@@ -66,7 +69,8 @@ import { OfferdetailsComponent } from './components/offerdetails/offerdetails.co
     AuthenticationService,
     UserService,
     OfferService,
-    DatePipe
+    DatePipe,
+    FeedbackService
   ],
   bootstrap: [AppComponent],
 

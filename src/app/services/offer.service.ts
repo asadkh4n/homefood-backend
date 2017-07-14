@@ -39,7 +39,6 @@ export class OfferService {
 
   getOffer(id: String){
     this.headers.append('Content-Type', 'application/json');
-    console.log(this.apiURL + '/' + id);
     return this.http.get(this.apiURL + '/' + id , {headers: this.headers})
     .map(res => res.json());
   }
