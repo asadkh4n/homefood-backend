@@ -11,4 +11,6 @@ export class Offer {
     vegetarian: Boolean;
     halal: Boolean;
     bio: Boolean;
+    place: String;
+    imgUrl: String;
 }

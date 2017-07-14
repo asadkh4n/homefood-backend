@@ -66,11 +66,9 @@ export class CreateofferComponent implements OnInit {
           .subscribe( data => {
 
             var createdOffer = JSON.parse(JSON.stringify(data));
-            console.log(createdOffer._id);
             
             if(createdOffer._id)
             {
-                
                 this.uploader.setOptions({
                   headers: [{name: 'Authorization', value: user.token }],
                   url : "http://localhost:3000/api/offer/pictures/" + user.username + "/" + createdOffer._id
@@ -79,7 +77,12 @@ export class CreateofferComponent implements OnInit {
                 this.uploader.uploadAll();
             }
 
-            this.toastr.success('You have sucessfully created offer!', null, { showCloseButton: true })
+            this.toastr.success('You have sucessfully created offer!', null, { showCloseButton: true });
+            
+            setTimeout(()=>{ 
+              this.router.navigate(['/myoffers']); 
+            }, 1000)
+            
             return;
       });
 /*      .subscribe( success => {
