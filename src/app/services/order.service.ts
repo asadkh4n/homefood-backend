@@ -26,7 +26,7 @@ export class OrderService {
     return this.http.get(this.apiURL, { headers: this.headers }).map(res => res.json());
   }
 
-  getOrder(id: String){
+  getOrder(id: String) {
     this.headers.append('Content-Type', 'application/json');
     return this.http.get(this.apiURL + '/' + id , {headers: this.headers})
       .map(res => res.json());
