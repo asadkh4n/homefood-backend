@@ -3,5 +3,4 @@ export class Order {
   user: String;
   offer: String;
   randNum: String;
-  id: String;
 }

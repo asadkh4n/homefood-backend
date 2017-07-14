@@ -29,7 +29,6 @@ export class TransactionConfirmationComponent implements OnInit {
     this.getOrder(id);
   }
 
-
   getOrder(order_id: String) {
     this.orderService.getOrder(order_id).subscribe(order => {
       this.order = order;
