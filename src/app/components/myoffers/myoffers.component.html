@@ -30,7 +30,7 @@
                     <br>
                 </div>
                 <div class="">
-                    <button style="display: inline;float: none;" class="btn btn-danger pointer">Delete</button>
+                    <button (click)="this.deleteOffer(offer._id, i)" style="display: inline;float: none;" class="btn btn-danger pointer">Delete/Cancel</button>
                     <button style="display: inline;float: none;" class="btn btn-info pointer">Edit</button>
                 </div>
             </a>

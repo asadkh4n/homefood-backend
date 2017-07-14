@@ -21,8 +21,10 @@ import { FooterComponent } from './components/footer/footer.component';
 import { CreateofferComponent } from './components/createoffer/createoffer.component';
 import { MyoffersComponent } from './components/myoffers/myoffers.component';
 
+
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+
 
 import { AuthGuard } from './guards/auth.guard';
 import { AuthenticationService } from './services/authentication.service';
@@ -31,8 +33,7 @@ import { OfferService } from './services/offer.service';
 
 import { FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
 
-
-
+import { YesNoModalComponent } from './components/myoffers/yes-no-modal/yes-no-modal.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
     FooterComponent,
     CreateofferComponent,
     FileSelectDirective,
-    MyoffersComponent
+    MyoffersComponent,
+    YesNoModalComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +61,6 @@ import { FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
     ToastModule.forRoot(),
     CarouselModule.forRoot(),
     InfiniteScrollModule
-    
   ],
   providers: [
     AuthGuard,
