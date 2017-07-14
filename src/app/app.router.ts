@@ -12,6 +12,7 @@ import { LoginComponent } from './components/login/login.component';
 import { CreateofferComponent } from './components/createoffer/createoffer.component';
 import { MyoffersComponent } from './components/myoffers/myoffers.component';
 import { OfferdetailsComponent } from './components/offerdetails/offerdetails.component';
+import { CodeconfirmationComponent } from './components/codeconfirmation/codeconfirmation.component';
 
 
 const appRoutes: Routes = [
@@ -45,6 +46,11 @@ const appRoutes: Routes = [
     {
         path: 'offerdetails/:id',
         component: OfferdetailsComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'codeconfirmation',
+        component: CodeconfirmationComponent,
         canActivate: [AuthGuard]
     }
 ];

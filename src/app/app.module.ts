@@ -30,10 +30,12 @@ import { AuthenticationService } from './services/authentication.service';
 import { UserService } from './services/user.service';
 import { OfferService } from './services/offer.service';
 import { FeedbackService } from './services/feedback.service';
+import { OrderService } from './services/order.service';
 
 import { FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
 import { OfferdetailsComponent } from './components/offerdetails/offerdetails.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
+import { CodeconfirmationComponent } from './components/codeconfirmation/codeconfirmation.component';
 
 
 
@@ -52,7 +54,8 @@ import { FeedbackComponent } from './components/feedback/feedback.component';
     MyoffersComponent,
     OfferdetailsComponent,
     FeedbackComponent,
-    TransactionConfirmationComponent
+    TransactionConfirmationComponent,
+    CodeconfirmationComponent
       ],
   imports: [
     BrowserModule,
@@ -74,7 +77,8 @@ import { FeedbackComponent } from './components/feedback/feedback.component';
     UserService,
     OfferService,
     DatePipe,
-    FeedbackService
+    FeedbackService,
+    OrderService
   ],
   bootstrap: [AppComponent],
 
