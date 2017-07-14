@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
@@ -22,6 +22,7 @@ import { CreateofferComponent } from './components/createoffer/createoffer.compo
 import { MyoffersComponent } from './components/myoffers/myoffers.component';
 
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 import { AuthGuard } from './guards/auth.guard';
 import { AuthenticationService } from './services/authentication.service';
@@ -61,6 +62,7 @@ import { FeedbackComponent } from './components/feedback/feedback.component';
     routes,
     BrowserAnimationsModule,
     ToastModule.forRoot(),
+    CarouselModule.forRoot(),
     InfiniteScrollModule
     
   ],

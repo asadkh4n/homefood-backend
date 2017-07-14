@@ -12,4 +12,6 @@ export class Offer {
     halal: Boolean;
     bio: Boolean;
     _id: String;
+    place: String;
+    imgUrl: String;
 }
