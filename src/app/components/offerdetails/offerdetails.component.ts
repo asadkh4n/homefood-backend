@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OfferService } from '../../services/offer.service';
 import { FeedbackService } from '../../services/feedback.service';
 import { Router } from '@angular/router';
+import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-offerdetails',
   templateUrl: './offerdetails.component.html',
@@ -15,7 +16,8 @@ export class OfferdetailsComponent implements OnInit {
   private feedbackService : FeedbackService;
   private feedbacks: any[] = [];
   constructor(private offerService: OfferService,
-              private router: Router) { }
+              private router: Router,
+              private datePipe: DatePipe) { }
 
   ngOnInit() {
     var url = location.pathname;

@@ -1,9 +1,9 @@
 #main-content {
-    width: 780px;
+    width: 500px;
     float: left;
 }
 #news {
     margin-left: 20px;
-    float: left;
-    width: 180px;
+    float: right;
+    width: 500px;
 }
