@@ -41,8 +41,13 @@ export class OfferService {
     return this.http.get(this.apiURL, { headers: this.headers }).map(res => res.json());
   }
 
+  getOffer(id: String){
+    this.headers.append('Content-Type', 'application/json');
+    return this.http.get(this.apiURL + '/' + id , {headers: this.headers})
+    .map(res => res.json());
+    }
+
   getDisplayImage(offerID) : Observable<string>
   {
     return this.http.get(this.apiURL + "/pictures/" + offerID, { headers: this.headers }).map(res => res.json());
   }
-}

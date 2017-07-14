@@ -11,7 +11,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { CreateofferComponent } from './components/createoffer/createoffer.component';
 import { MyoffersComponent } from './components/myoffers/myoffers.component';
-import {TransactionConfirmationComponent} from "./components/transactionconfirmation/transactionconfirmation.component";
+import { OfferdetailsComponent } from './components/offerdetails/offerdetails.component';
+
 
 const appRoutes: Routes = [
     {
@@ -42,8 +43,8 @@ const appRoutes: Routes = [
         canActivate: [AuthGuard]
     },
     {
-        path: 'transactionconfirmation',
-        component: TransactionConfirmationComponent,
+        path: 'offerdetails/:id',
+        component: OfferdetailsComponent,
         canActivate: [AuthGuard]
     }
 ];
