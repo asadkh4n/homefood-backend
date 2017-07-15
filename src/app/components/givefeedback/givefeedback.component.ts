@@ -10,12 +10,10 @@ export class GivefeedbackComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    
+
   }
 
-
 }
-
 
 export class NgbdRatingBasic {
   currentRate = 8;
