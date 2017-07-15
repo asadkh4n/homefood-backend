@@ -13,6 +13,7 @@ export class OfferdetailsComponent implements OnInit {
   private user;
   private feedback;
   private user_id;
+  private date;
   private feedbackService : FeedbackService;
   private feedbacks: any[] = [];
   constructor(private offerService: OfferService,
@@ -24,6 +25,7 @@ export class OfferdetailsComponent implements OnInit {
     var res = url.split("/");
     var id = res[2];
     this.getOffer(id);
+    this.getImageUrl(id);
     //this.user_id = this.offer.user;
     //this.getFeedbacks(this.offer.user_id);
     
@@ -33,10 +35,16 @@ export class OfferdetailsComponent implements OnInit {
   {
       this.offer =  this.offerService.getOffer(id);
       this.offerService.getOffer(id).subscribe(offer => {
-
         this.offer = offer;
-
+        this.date = offer.handoutDatetimeStart;
+        console.log(this.date);
       })
+  }
+   getImageUrl(offerID)
+  {
+    return this.offerService.getDisplayImage(offerID).subscribe(imgSrc =>{
+      this.offer.imgUrl = imgSrc;
+    });
   }
 
  
