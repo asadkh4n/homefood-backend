@@ -24,7 +24,7 @@ export class OfferService {
    }
 
   createOffer(newOffer: Offer) : Observable<Object> {
-    
+
     this.headers.append('Content-Type', 'application/json');
 
     alert(this.headers.get("Authorization"));
@@ -33,7 +33,7 @@ export class OfferService {
 
     return this.http.post(this.apiURL, JSON.stringify(newOffer), { headers: this.headers })
     .map((response: Response) => response.json())
-    .catch((response: Response) => Observable.throw(response.status)) 
+    .catch((response: Response) => Observable.throw(response.status))
   }
 
   getOffers(loadedElements: Number){
@@ -43,7 +43,7 @@ export class OfferService {
 
   getOffer(id: String){
     this.headers.append('Content-Type', 'application/json');
-    
+
     return this.http.get(this.apiURL + '/' + id , {headers: this.headers})
     .map(res => res.json());
     }
@@ -57,6 +57,5 @@ export class OfferService {
           return this.http.delete(this.apiURL + "/" + offerID, { headers: this.headers }).map(res => res);
     } catch (error) {
     }
-
   }
 }

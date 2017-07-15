@@ -20,12 +20,25 @@ export class OrderService {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.headers.append('Authorization', this.currentUser.token);
    }
-  getOrder(id: String){
+
+  getOrder(id: String) {
     this.headers.append('Content-Type', 'application/json');
-    
+
     return this.http.get(this.apiURL + '/' + id , {headers: this.headers})
     .map(res => res.json());
     }
+
+  getOrders(loadedElements: Number) {
+    this.headers.set('LoadedElements', loadedElements.toString());
+    return this.http.get(this.apiURL, { headers: this.headers }).map(res => res.json());
+  }
+
+  cancelOrder(orderID) {
+    try {
+      return this.http.delete(this.apiURL + '/' + orderID, { headers: this.headers }).map(res => res);
+    } catch (error) {
+    }
+  }
 
 
 }

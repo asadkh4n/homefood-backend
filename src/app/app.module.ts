@@ -38,6 +38,7 @@ import { FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
 import { OfferdetailsComponent } from './components/offerdetails/offerdetails.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { GivefeedbackComponent } from './components/givefeedback/givefeedback.component';
+import { MyordersComponent } from './components/myorders/myorders.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { GivefeedbackComponent } from './components/givefeedback/givefeedback.co
     OfferdetailsComponent,
     FeedbackComponent,
     TransactionConfirmationComponent,
-    GivefeedbackComponent
+    GivefeedbackComponent,
+    MyordersComponent
       ],
   imports: [
     BrowserModule,
