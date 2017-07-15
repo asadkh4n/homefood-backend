@@ -10,6 +10,7 @@ import { User } from '../models/user';
 @Injectable()
 export class UserService {
   private apiURL = myGlobals.baseAPIUrl + '/user';
+  private headers: Headers;
 
   constructor(private http: Http) { }
   getCurrentUser() {
@@ -34,5 +35,12 @@ export class UserService {
           return false;
         }
       });
+  }
+  getUser(id: String){
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    console.log(this.apiURL + '/' + id);
+    return this.http.get(this.apiURL + '/' + id , {headers: headers})
+    .map(res => res.json());
   }
 }

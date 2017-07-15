@@ -67,7 +67,6 @@ export class CreateofferComponent implements OnInit {
           .subscribe( data => {
 
             var createdOffer = JSON.parse(JSON.stringify(data));
-            
             if(createdOffer._id)
             {
                 this.uploader.setOptions({

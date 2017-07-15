@@ -1,0 +1,32 @@
+<html lang="en-US" ng-app="basicApp" ng-controller="MyCtrl">
+<div class="container" style="padding:20px;">
+<div id="main-content">
+    <div class="news-article">
+        <img src="../../../../../home-food-backend/uploads/users/bulent1/5958dd8f22ef4d1be86bde99/charred-pepper-steak-sauce1.jpg">
+        <p>{{ offer.description }}</p>
+        <p><app-feedback></app-feedback></p>
+    </div>
+</div>
+<div id="news">
+    <div class="article">
+        <h2>{{ offer.title }}</h2>
+        <ul>
+            <br />
+            <li><p><b>Price:</b> {{ offer.price }}</p></li>
+            <li><p><b>Place:</b> Maxvorstadt, München</p></li>
+            <li><p><b>Pickup Date:</b> {{ offer.dateCreated }}</p></li>
+            <li><p><b>Ingredients:</b> {{ offer.ingredients }}</p></li>
+            <li><p><b>Delivery:</b> {{ offer.deliveryType }}</p></li>
+            <div *ngIf='offer.halal'><li><p><b>Halal:</b>&#10004;</p></li> </div>
+            <div *ngIf='offer.vegan'><li><p><b>Vegan:</b>&#10004;</p></li> </div>
+            <div *ngIf='offer.vegetarian'><li><p><b>Vegetarian:</b>&#10004;</p></li> </div>
+            <div *ngIf='offer.bio'><li><p><b>Bio:</b>&#10004;</p></li> </div>
+          
+        </ul>
+    </div>
+</div>
+</div>
+</html>
+
+
+

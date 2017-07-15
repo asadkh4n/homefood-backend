@@ -20,6 +20,7 @@ import { LandingpageComponent } from './components/landingpage/landingpage.compo
 import { FooterComponent } from './components/footer/footer.component';
 import { CreateofferComponent } from './components/createoffer/createoffer.component';
 import { MyoffersComponent } from './components/myoffers/myoffers.component';
+import { TransactionConfirmationComponent } from './components/transactionconfirmation/transactionconfirmation.component';
 
 
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
@@ -30,8 +31,12 @@ import { AuthGuard } from './guards/auth.guard';
 import { AuthenticationService } from './services/authentication.service';
 import { UserService } from './services/user.service';
 import { OfferService } from './services/offer.service';
+import { FeedbackService } from './services/feedback.service';
+import { OrderService } from './services/order.service';
 
 import { FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
+import { OfferdetailsComponent } from './components/offerdetails/offerdetails.component';
+import { FeedbackComponent } from './components/feedback/feedback.component';
 
 import { YesNoModalComponent } from './components/myoffers/yes-no-modal/yes-no-modal.component';
 
@@ -47,8 +52,10 @@ import { YesNoModalComponent } from './components/myoffers/yes-no-modal/yes-no-m
     CreateofferComponent,
     FileSelectDirective,
     MyoffersComponent,
-    YesNoModalComponent
-  ],
+    OfferdetailsComponent,
+    FeedbackComponent,
+    TransactionConfirmationComponent
+      ],
   imports: [
     BrowserModule,
     FormsModule,
@@ -67,11 +74,13 @@ import { YesNoModalComponent } from './components/myoffers/yes-no-modal/yes-no-m
     AuthenticationService,
     UserService,
     OfferService,
-    DatePipe
+    DatePipe,
+    FeedbackService,
+    OrderService
   ],
   bootstrap: [AppComponent],
 
-  exports:[
+  exports: [
     FileSelectDirective
   ]
 })
