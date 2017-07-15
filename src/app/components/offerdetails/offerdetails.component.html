@@ -3,14 +3,18 @@
 <div id="main-content">
     <div class="news-article">
         <img style="max-height:200px;" id="{{offer._id}}" src="{{offer.imgUrl}}" alt="Food offer image">
-        <p>{{ offer.description }}</p>
+        
         <p><app-feedback></app-feedback></p>
     </div>
 </div>
 <div id="news">
     <div class="article">
         <h2>{{ offer.title }}</h2>
+        <br />
+        <p>{{ offer.description }}</p>
         <ul>
+            
+            
             <br />
             <li><p><b>Price:</b> {{ offer.price }}</p></li>
             <li><p><b>Place:</b> {{ offer.place }}</p></li>
