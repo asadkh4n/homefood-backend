@@ -37,9 +37,8 @@ import { OrderService } from './services/order.service';
 import { FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
 import { OfferdetailsComponent } from './components/offerdetails/offerdetails.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
-import { CodeconfirmationComponent } from './components/codeconfirmation/codeconfirmation.component';
+import { GivefeedbackComponent } from './components/givefeedback/givefeedback.component';
 
-//import { YesNoModalComponent } from './components/myoffers/yes-no-modal/yes-no-modal.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +55,7 @@ import { CodeconfirmationComponent } from './components/codeconfirmation/codecon
     OfferdetailsComponent,
     FeedbackComponent,
     TransactionConfirmationComponent,
-    CodeconfirmationComponent
+    GivefeedbackComponent
       ],
   imports: [
     BrowserModule,

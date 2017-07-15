@@ -12,8 +12,8 @@ import { LoginComponent } from './components/login/login.component';
 import { CreateofferComponent } from './components/createoffer/createoffer.component';
 import { MyoffersComponent } from './components/myoffers/myoffers.component';
 import { OfferdetailsComponent } from './components/offerdetails/offerdetails.component';
-import { CodeconfirmationComponent } from './components/codeconfirmation/codeconfirmation.component';
-import {TransactionConfirmationComponent} from './components/transactionconfirmation/transactionconfirmation.component';
+import { GivefeedbackComponent } from './components/givefeedback/givefeedback.component';
+import { TransactionConfirmationComponent } from './components/transactionconfirmation/transactionconfirmation.component';
 
 
 const appRoutes: Routes = [
@@ -50,13 +50,13 @@ const appRoutes: Routes = [
         canActivate: [AuthGuard]
     },
     {
-        path: 'transactionconfirmation/:id',
-        component: TransactionConfirmationComponent,
+        path: 'givefeedback/:id',
+        component: GivefeedbackComponent,
         canActivate: [AuthGuard]
     },
     {
-        path: 'codeconfirmation',
-        component: CodeconfirmationComponent,
+        path: 'transactionconfirmation/:id',
+        component: TransactionConfirmationComponent,
         canActivate: [AuthGuard]
     }
 ];

@@ -1,0 +1,16 @@
+p.padding {
+    padding-left: 2cm;
+}
+div {
+    padding-left: 2cm;
+    padding-top: 2cm;
+}
+#comment{
+    padding-left: 2cm;
+    padding-top: 5cm;
+}
+
+#but{
+    padding-left: 2cm;
+    padding-top: 10px;
+}
