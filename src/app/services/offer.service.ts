@@ -24,10 +24,9 @@ export class OfferService {
   }
 
   createOffer(newOffer: Offer): Observable<Object> {
-
-    this.headers.append('Content-Type', 'application/json');
-
-    alert(this.headers.get("Authorization"));
+    
+    if(!this.headers.get("Content-Type"))
+      this.headers.append('Content-Type', 'application/json');
 
     newOffer.user = this.currentUser.userId;
 
@@ -49,5 +48,13 @@ export class OfferService {
 
   getDisplayImage(offerID): Observable<string> {
     return this.http.get(this.apiURL + "/pictures/" + offerID, {headers: this.headers}).map(res => res.json());
+  }
+
+  deleteOffer(offerID){
+    try {
+          return this.http.delete(this.apiURL + "/" + offerID, { headers: this.headers }).map(res => res);
+    } catch (error) {
+    }
+
   }
 }

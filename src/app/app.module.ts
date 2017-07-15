@@ -22,8 +22,10 @@ import { CreateofferComponent } from './components/createoffer/createoffer.compo
 import { MyoffersComponent } from './components/myoffers/myoffers.component';
 import { TransactionConfirmationComponent } from './components/transactionconfirmation/transactionconfirmation.component';
 
+
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+
 
 import { AuthGuard } from './guards/auth.guard';
 import { AuthenticationService } from './services/authentication.service';
@@ -37,8 +39,7 @@ import { OfferdetailsComponent } from './components/offerdetails/offerdetails.co
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { CodeconfirmationComponent } from './components/codeconfirmation/codeconfirmation.component';
 
-
-
+import { YesNoModalComponent } from './components/myoffers/yes-no-modal/yes-no-modal.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,6 @@ import { CodeconfirmationComponent } from './components/codeconfirmation/codecon
     ToastModule.forRoot(),
     CarouselModule.forRoot(),
     InfiniteScrollModule
-
   ],
   providers: [
     AuthGuard,
@@ -82,7 +82,7 @@ import { CodeconfirmationComponent } from './components/codeconfirmation/codecon
   ],
   bootstrap: [AppComponent],
 
-  exports:[
+  exports: [
     FileSelectDirective
   ]
 })
