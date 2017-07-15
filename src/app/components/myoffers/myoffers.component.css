@@ -1,0 +1,21 @@
+.offerLink:hover {
+    background-color: #E8F4E9;
+}
+
+.list-group-item:hover {
+    background-color: #E8F4E9;
+}
+
+.actionButtons {
+    margin-top: 10px;
+}
+
+#left {
+    float: left;
+    width: 50%;
+    overflow: hidden;
+}
+
+#right {
+    overflow: hidden;
+}

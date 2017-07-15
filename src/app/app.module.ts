@@ -3,7 +3,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { JsonpModule } from '@angular/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 
@@ -22,10 +22,8 @@ import { CreateofferComponent } from './components/createoffer/createoffer.compo
 import { MyoffersComponent } from './components/myoffers/myoffers.component';
 import { TransactionConfirmationComponent } from './components/transactionconfirmation/transactionconfirmation.component';
 
-
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
-
 
 import { AuthGuard } from './guards/auth.guard';
 import { AuthenticationService } from './services/authentication.service';
@@ -39,6 +37,7 @@ import { OfferdetailsComponent } from './components/offerdetails/offerdetails.co
 import { FeedbackComponent } from './components/feedback/feedback.component';
 
 import { YesNoModalComponent } from './components/myoffers/yes-no-modal/yes-no-modal.component';
+import { ConfirmOfferComponent } from './components/confirm-offer/confirm-offer.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +53,9 @@ import { YesNoModalComponent } from './components/myoffers/yes-no-modal/yes-no-m
     MyoffersComponent,
     OfferdetailsComponent,
     FeedbackComponent,
-    TransactionConfirmationComponent
+    TransactionConfirmationComponent,
+    YesNoModalComponent,
+    ConfirmOfferComponent
       ],
   imports: [
     BrowserModule,
@@ -76,10 +77,11 @@ import { YesNoModalComponent } from './components/myoffers/yes-no-modal/yes-no-m
     OfferService,
     DatePipe,
     FeedbackService,
-    OrderService
+    OrderService,
+    YesNoModalComponent
   ],
   bootstrap: [AppComponent],
-
+  entryComponents: [YesNoModalComponent],
   exports: [
     FileSelectDirective
   ]
