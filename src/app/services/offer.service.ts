@@ -52,4 +52,11 @@ export class OfferService {
   {
     return this.http.get(this.apiURL + "/pictures/" + offerID, { headers: this.headers }).map(res => res.json());
   }
+  deleteOffer(offerID){
+    try {
+          return this.http.delete(this.apiURL + "/" + offerID, { headers: this.headers }).map(res => res);
+    } catch (error) {
+    }
+
+  }
 }

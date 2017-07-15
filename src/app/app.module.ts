@@ -38,7 +38,6 @@ import { FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
 import { OfferdetailsComponent } from './components/offerdetails/offerdetails.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
 
-import { YesNoModalComponent } from './components/myoffers/yes-no-modal/yes-no-modal.component';
 
 @NgModule({
   declarations: [
