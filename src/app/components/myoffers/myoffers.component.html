@@ -8,18 +8,31 @@
     <div class="list-group">
         <div class="search-results" infinite-scroll [infiniteScrollDistance]="1" [infiniteScrollUpDistance]="-1000000" [infiniteScrollThrottle]="300" (scrolled)="getOffers()">
             <a *ngFor="let offer of offers" href="/offerdetails/{{offer._id}}" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="search-results" infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollUpDistance]="-1000000" [infiniteScrollThrottle]="300" (scrolled)="getOffers()">
+            <a *ngFor="let offer of offers; let i = index" [attr.data-index]="i" class="list-group-item list-group-item-action flex-column align-items-start">
                 <div class="d-flex w-100 justify-content-between row">
                     <div class="col col-md-7">
                         <h5 class="mb-1">{{ offer.title }}, <span>Price:</span> <span style="color:#4CAF50; font-size:24px;"> {{ offer.price }} € </span></h5>
                         <span> <span>Published:</span> <strong> {{ offer.dateCreated  | date:'yMMMd' }}</strong></span>
+
+                        <br>
+                        <br>
+
+                        <div class="">
+                            <p class="mb-1"> <strong> Description: </strong> <br> {{ offer.description }}</p>
+                            <small><strong> Ingredients: </strong> <br> {{ offer.ingredients }}</small>
+                        </div>
+
                     </div>
+                    <div class="col col-md-5">
+                        <img style="max-height:200px;" class="pull-right" id="{{offer._id}}" src="{{offer.imgUrl}}" alt="Food offer image">
+                        <!--<img style="max-height:200px;" id="offer._id" src="{{offer. this.displayImageUrl}}" alt="Food offer image">-->
+                    </div>
+                    <br>
                 </div>
-                <br>
-                <div class="row">
-                    <div class="col col-md-7">
-                        <p class="mb-1"> <strong> Description: </strong> <br> {{ offer.description }}</p>
-                        <small><strong> Ingredients: </strong> <br> {{ offer.ingredients }}</small>
-                    </div>
+                <div class="">
+                    <button style="display: inline;float: none;" class="btn btn-danger pointer">Delete</button>
+                    <button style="display: inline;float: none;" class="btn btn-info pointer">Edit</button>
                 </div>
             </a>
         </div>

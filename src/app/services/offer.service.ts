@@ -8,6 +8,8 @@ import * as myGlobals from '../../globals';
 
 import { Offer } from '../models/offer';
 
+
+
 @Injectable()
 export class OfferService {
   private apiURL = myGlobals.baseAPIUrl + '/offer';
@@ -25,6 +27,8 @@ export class OfferService {
     
     this.headers.append('Content-Type', 'application/json');
 
+    alert(this.headers.get("Authorization"));
+
     newOffer.user = this.currentUser.userId;
 
     return this.http.post(this.apiURL, JSON.stringify(newOffer), { headers: this.headers })
@@ -41,5 +45,9 @@ export class OfferService {
     this.headers.append('Content-Type', 'application/json');
     return this.http.get(this.apiURL + '/' + id , {headers: this.headers})
     .map(res => res.json());
+    }
+
+  getDisplayImage(offerID) : Observable<string>
+  {
+    return this.http.get(this.apiURL + "/pictures/" + offerID, { headers: this.headers }).map(res => res.json());
   }
-}
