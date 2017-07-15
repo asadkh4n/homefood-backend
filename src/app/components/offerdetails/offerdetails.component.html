@@ -2,7 +2,7 @@
 <div class="container" style="padding:20px;">
 <div id="main-content">
     <div class="news-article">
-        <img src="../../../../../home-food-backend/uploads/users/bulent1/5958dd8f22ef4d1be86bde99/charred-pepper-steak-sauce1.jpg">
+        <img style="max-height:200px;" id="{{offer._id}}" src="{{offer.imgUrl}}" alt="Food offer image">
         <p>{{ offer.description }}</p>
         <p><app-feedback></app-feedback></p>
     </div>
@@ -13,7 +13,7 @@
         <ul>
             <br />
             <li><p><b>Price:</b> {{ offer.price }}</p></li>
-            <li><p><b>Place:</b> Maxvorstadt, München</p></li>
+            <li><p><b>Place:</b> {{ offer.place }}</p></li>
             <li><p><b>Pickup Date:</b> {{ date }}</p></li>
             <li><p><b>Ingredients:</b> {{ offer.ingredients }}</p></li>
             <li><p><b>Delivery:</b> {{ offer.deliveryType }}</p></li>
