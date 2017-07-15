@@ -13,6 +13,7 @@ import { CreateofferComponent } from './components/createoffer/createoffer.compo
 import { MyoffersComponent } from './components/myoffers/myoffers.component';
 import { OfferdetailsComponent } from './components/offerdetails/offerdetails.component';
 import { CodeconfirmationComponent } from './components/codeconfirmation/codeconfirmation.component';
+import {TransactionConfirmationComponent} from './components/transactionconfirmation/transactionconfirmation.component';
 
 
 const appRoutes: Routes = [
@@ -46,6 +47,11 @@ const appRoutes: Routes = [
     {
         path: 'offerdetails/:id',
         component: OfferdetailsComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'transactionconfirmation/:id',
+        component: TransactionConfirmationComponent,
         canActivate: [AuthGuard]
     },
     {

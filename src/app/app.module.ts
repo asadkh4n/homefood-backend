@@ -39,7 +39,7 @@ import { OfferdetailsComponent } from './components/offerdetails/offerdetails.co
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { CodeconfirmationComponent } from './components/codeconfirmation/codeconfirmation.component';
 
-import { YesNoModalComponent } from './components/myoffers/yes-no-modal/yes-no-modal.component';
+//import { YesNoModalComponent } from './components/myoffers/yes-no-modal/yes-no-modal.component';
 
 @NgModule({
   declarations: [
