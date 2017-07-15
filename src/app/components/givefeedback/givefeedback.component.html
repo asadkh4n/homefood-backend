@@ -1,0 +1,22 @@
+<p><app-offerdetails></app-offerdetails></p>
+
+<div id="comment"><br>
+Your comment:
+<br />
+<textarea rows="4" cols="50" name="comment" form="usrform">
+</textarea>
+</div>
+<div>
+<ngb-rating [(rate)]="currentRate"></ngb-rating>
+<hr>
+<pre>Rate this chef: <b *ngIf='currentRate'>{{currentRate}}</b></pre>
+</div>
+
+<div id="but" [(ngModel)]="model" ngbRadioGroup name="radioBasic">
+  <label class="btn btn-primary">
+    <input type="radio" [value]="1"> Submit
+  </label>
+
+</div>
+<hr>
+<pre>{{model}}</pre>
