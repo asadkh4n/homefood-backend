@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FeedbackService } from '../../services/feedback.service';
 import { OfferService } from '../../services/offer.service';
 import { UserService } from '../../services/user.service';
-
+import { OrderService } from '../../services/order.service';
 @Component({
   selector: 'app-feedback',
   templateUrl: './feedback.component.html',
@@ -12,6 +12,7 @@ export class FeedbackComponent implements OnInit {
   private feedbacks1: any[] = [];
   private user_id = "";
   private user;
+  private offer_id="";
   public sum = 0;
   public username;
   private offers: any[] = [];
@@ -23,8 +24,10 @@ export class FeedbackComponent implements OnInit {
     var url = location.pathname;
     var res = url.split("/");
     var id = res[2];
+      this.getFeedbacks(id);
+   
     //console.log(this.offers[0].user);
-    this.getFeedbacks(id);
+    
     //console.log(this.user_id);
   }
 
@@ -37,7 +40,6 @@ export class FeedbackComponent implements OnInit {
           this.userService.getUser(this.user_id).subscribe(user => {
               this.user = user;
               this.username = this.user.username;
-              console.log(this.username);
           })
           //this.username = this.user.username;
           
@@ -54,5 +56,7 @@ export class FeedbackComponent implements OnInit {
     
     
   }
+
+ 
 
 }

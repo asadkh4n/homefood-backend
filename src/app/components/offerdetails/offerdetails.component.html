@@ -4,7 +4,7 @@
     <div class="news-article">
         <img style="max-height:200px;" id="{{offer._id}}" src="{{offer.imgUrl}}" alt="Food offer image">
         
-        <p><app-feedback></app-feedback></p>
+        <div *ngIf='check'><app-feedback></app-feedback></div>
     </div>
 </div>
 <div id="news">
@@ -25,7 +25,6 @@
             <div *ngIf='offer.vegan'><li><p><b>Vegan:</b>&#10004;</p></li> </div>
             <div *ngIf='offer.vegetarian'><li><p><b>Vegetarian:</b>&#10004;</p></li> </div>
             <div *ngIf='offer.bio'><li><p><b>Bio:</b>&#10004;</p></li> </div>
-          
         </ul>
     </div>
 </div>
