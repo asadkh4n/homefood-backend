@@ -1,0 +1,25 @@
+<div class="container" style="padding:20px;">
+
+  <div class="text-center">
+    <h4>Code confirmation</h4>
+  </div>
+  <hr>
+
+  <div class="text-center">
+    <h5>Food: {{offer.title}}</h5>
+    <h5>{{offer.handoutDateTimeStart}}</h5>
+    <h5>Price: {{offer.price}}</h5>
+  </div>
+
+  <div class="form-group">
+    <label for="inputEmail" class="col-lg-2 control-label">Confirmation code:</label>
+    <div class="col-lg-10">
+      <input type="text" name="offer.price" [(ngModel)]="offer.price" class="form-control" id="inputCode" placeholder="Code">
+    </div>
+  </div>
+
+  <div class="text-center">
+    <button type="submit" (click)="confirmCode($event)" class="btn btn-success btn-lg pointer">Confirm</button>
+  </div>
+
+</div>

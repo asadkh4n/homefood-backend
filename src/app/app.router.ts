@@ -13,6 +13,7 @@ import { CreateofferComponent } from './components/createoffer/createoffer.compo
 import { MyoffersComponent } from './components/myoffers/myoffers.component';
 import { OfferdetailsComponent } from './components/offerdetails/offerdetails.component';
 import { GivefeedbackComponent } from './components/givefeedback/givefeedback.component';
+import { TransactionConfirmationComponent } from './components/transactionconfirmation/transactionconfirmation.component';
 
 
 const appRoutes: Routes = [
@@ -51,6 +52,11 @@ const appRoutes: Routes = [
     {
         path: 'givefeedback/:id',
         component: GivefeedbackComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'transactionconfirmation/:id',
+        component: TransactionConfirmationComponent,
         canActivate: [AuthGuard]
     }
 ];
