@@ -21,6 +21,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { CreateofferComponent } from './components/createoffer/createoffer.component';
 import { MyoffersComponent } from './components/myoffers/myoffers.component';
 import { TransactionConfirmationComponent } from './components/transactionconfirmation/transactionconfirmation.component';
+import { MySearchComponent } from './components/search/search.component';
 
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
@@ -53,7 +54,8 @@ import { FeedbackComponent } from './components/feedback/feedback.component';
     MyoffersComponent,
     OfferdetailsComponent,
     FeedbackComponent,
-    TransactionConfirmationComponent
+    TransactionConfirmationComponent,
+    MySearchComponent
       ],
   imports: [
     BrowserModule,
