@@ -11,6 +11,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { CreateofferComponent } from './components/createoffer/createoffer.component';
 import { MyoffersComponent } from './components/myoffers/myoffers.component';
+import { MyordersComponent } from './components/myorders/myorders.component';
 import { OfferdetailsComponent } from './components/offerdetails/offerdetails.component';
 import { MySearchComponent } from './components/search/search.component';
 import { ConfirmOfferComponent } from './components/confirm-offer/confirm-offer.component';
@@ -45,6 +46,11 @@ const appRoutes: Routes = [
         path: 'myoffers',
         component: MyoffersComponent,
         canActivate: [AuthGuard]
+    },
+    {
+      path: 'myorders',
+      component: MyordersComponent,
+      canActivate: [AuthGuard]
     },
     {
         path: 'offerdetails/:id',

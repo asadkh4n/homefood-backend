@@ -20,6 +20,7 @@ import { LandingpageComponent } from './components/landingpage/landingpage.compo
 import { FooterComponent } from './components/footer/footer.component';
 import { CreateofferComponent } from './components/createoffer/createoffer.component';
 import { MyoffersComponent } from './components/myoffers/myoffers.component';
+import { MyordersComponent } from './components/myorders/myorders.component';
 import { TransactionConfirmationComponent } from './components/transactionconfirmation/transactionconfirmation.component';
 import { MySearchComponent } from './components/search/search.component';
 
@@ -52,6 +53,7 @@ import { MakeOrderComponent } from './components/make-order/make-order.component
     CreateofferComponent,
     FileSelectDirective,
     MyoffersComponent,
+    MyordersComponent,
     OfferdetailsComponent,
     FeedbackComponent,
     TransactionConfirmationComponent,
