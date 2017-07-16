@@ -1,20 +1,20 @@
 <p><app-offerdetails></app-offerdetails></p>
 
-<div id="rating">
-  <pre>Rate this chef: <b *ngIf='currentRate'>{{currentRate}}</b></pre>
-  <ngb-rating [(rate)]="currentRate"></ngb-rating>
+<div id="rating" >
+  <pre>Rate this chef: <b  *ngIf='currentRate'>{{currentRate}}</b></pre>
+  <ngb-rating [(ngModel)]="feedback.rating" [(rate)]="currentRate"></ngb-rating>
 </div>
 
 <div id="comment"><br>
 Your comment:
 <br />
-<textarea rows="4" cols="50" name="comment" form="usrform">
+<textarea rows="4" cols="50" name="comment"  form="usrform" [(ngModel)]="feedback.comment">
 </textarea>
 </div>
 
-<div id="but" [(ngModel)]="model" ngbRadioGroup name="radioBasic">
+<div id="but" [(ngModel)]="model" ngbRadioGroup name="radioBasic" (click)="createFeedback($event)">
   <label class="btn btn-primary">
-    <input type="radio" [value]="1"> Submit
+    <input type="radio" [value]="1" > Submit
   </label>
 </div>
 
