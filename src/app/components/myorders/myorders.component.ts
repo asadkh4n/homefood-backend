@@ -38,13 +38,9 @@ export class MyordersComponent implements OnInit {
               private sanitizer: DomSanitizer,
               private http: Http) {
     this.titleService.setTitle("My orders");
-
-    this.getOrders();
-    this.getOffersFromOrders();
   }
 
   ngOnInit() {
-
     if (window.pageYOffset == 0) {
       this.getOrders();
     } else {
@@ -53,6 +49,7 @@ export class MyordersComponent implements OnInit {
       }, 1200)
     }
 
+    this.getOffersFromOrders();
   }
 
   getOrders() {
@@ -65,15 +62,13 @@ export class MyordersComponent implements OnInit {
   }
 
   getOffersFromOrders() {
+    this.getOrders();
     this.offerService.getOffers(this.loadedElementsNumOffers).subscribe(offers => {
       for (let i = 0; i < offers.length; i++) {
         for (let j = 0; i < this.orders.length; j++) {
-          if (offers[i]._id == this.orders[j].offer ) {
-            console.log("!!!!");
+          if (offers[i]._id == this.orders[j].offer) {
             this.offers.push(offers[i]);
             this.getImageUrl(offers[i]._id);
-          } else {
-            console.log("Noooooes");
           }
         }
       }

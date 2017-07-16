@@ -6,10 +6,11 @@
   <hr>
 
   <div class="list-group">
-    <div class="search-results" infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollUpDistance]="-1000000" [infiniteScrollThrottle]="300" (scrolled)="getOrders()">
-      <a href="/offerdetails/{{order.offer}}" *ngFor="let order of orders; let i = index" [attr.data-index]="i" class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="search-results" infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollUpDistance]="-1000000" [infiniteScrollThrottle]="300" (scrolled)="getOffersFromOrders()">
+
+      <a href="/offerdetails/{{offer._id}}" *ngFor="let offer of offers; let i = index" [attr.data-index]="i" class="list-group-item list-group-item-action flex-column align-items-start">
         <div class="d-flex w-100 justify-content-between row">
-          <div class="col col-md-7" *ngFor="let offer of offers; let j = index">
+          <div class="col col-md-7">
             <h5 class="mb-1">{{ offer.title }}, <span>Price:</span> <span style="color:#4CAF50; font-size:24px;"> {{ offer.price }} € </span></h5>
             <span> <span>Published:</span> <strong> {{ offer.dateCreated  | date:'yMMMd' }}</strong></span>
 
@@ -22,17 +23,18 @@
             </div>
 
           </div>
-          <div class="col col-md-5" *ngFor="let offer of offers; let h = index">
+          <div class="col col-md-5">
             <img style="max-height:200px;" class="pull-right" id="{{offer._id}}" src="{{offer.imgUrl}}" alt="Food offer image">
             <!--<img style="max-height:200px;" id="offer._id" src="{{offer. this.displayImageUrl}}" alt="Food offer image">-->
           </div>
           <br>
         </div>
         <div class="">
-          <button (click)="this.cancelOrder(order._id, i)" style="display: inline;float: none;" class="btn btn-danger pointer">Cancel Order</button>
+          <button (click)="this.cancelOrder(offer._id)" style="display: inline;float: none;" class="btn btn-danger pointer">Cancel Order</button>
         </div>
       </a>
-    </div>
 
+    </div>
   </div>
+
 </div>
