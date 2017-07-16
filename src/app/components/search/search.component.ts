@@ -108,4 +108,9 @@ export class MySearchComponent implements OnInit {
       this.offers.find(x => x._id == offerID).imgUrl = imgSrc;
     });
   }
+
+  retirectToMakeOrder(offerID)
+  {
+    this.router.navigate(['/make-order', offerID ]);
+  } 
 }
