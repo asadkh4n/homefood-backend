@@ -25,18 +25,13 @@ export class MyordersComponent implements OnInit {
 
   loadedElementsNumOffers = 0;
   loadedElementsNumOrders = 0;
-  throttle = 300;
-  scrollDistance = 1;
 
   public displayImageUrl = '';
 
   constructor(private orderService: OrderService,
               private offerService: OfferService,
               private router: Router,
-              private titleService: Title,
-              private datePipe: DatePipe,
-              private sanitizer: DomSanitizer,
-              private http: Http) {
+              private titleService: Title) {
     this.titleService.setTitle("My orders");
   }
 
@@ -94,6 +89,10 @@ export class MyordersComponent implements OnInit {
         this.orders.splice(elementIndex,1);
       }
     });
+  }
+
+  redirectToGiveFeedback(offerID) {
+    this.router.navigate(['/givefeedback', offerID ]);
   }
 
 
