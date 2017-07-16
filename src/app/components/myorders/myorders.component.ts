@@ -65,10 +65,12 @@ export class MyordersComponent implements OnInit {
     this.getOrders();
     this.offerService.getOffers(this.loadedElementsNumOffers).subscribe(offers => {
       for (let i = 0; i < offers.length; i++) {
-        for (let j = 0; i < this.orders.length; j++) {
+        for (let j = 0; j < this.orders.length; j++) {
           if (offers[i]._id == this.orders[j].offer) {
             this.offers.push(offers[i]);
             this.getImageUrl(offers[i]._id);
+          } else {
+            console.log("noooeees");
           }
         }
       }

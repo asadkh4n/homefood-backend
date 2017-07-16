@@ -1,6 +1,6 @@
 export class Order {
     user: String;
-    offerID: Number;
+    offer: String;
     dateTime: Date;
     randNum: String;
     status: String;
