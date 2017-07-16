@@ -54,12 +54,9 @@ import { ConfirmOfferComponent } from './components/confirm-offer/confirm-offer.
     OfferdetailsComponent,
     FeedbackComponent,
     TransactionConfirmationComponent,
-<<<<<<< HEAD
-    MySearchComponent
-=======
+    MySearchComponent,
     ConfirmOfferComponent,
     GivefeedbackComponent
->>>>>>> 8e4ae91f243ef6793dcc729bc464f10e448110d0
       ],
   imports: [
     BrowserModule,

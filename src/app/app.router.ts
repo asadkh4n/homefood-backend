@@ -12,14 +12,11 @@ import { LoginComponent } from './components/login/login.component';
 import { CreateofferComponent } from './components/createoffer/createoffer.component';
 import { MyoffersComponent } from './components/myoffers/myoffers.component';
 import { OfferdetailsComponent } from './components/offerdetails/offerdetails.component';
-<<<<<<< HEAD
 import { MySearchComponent } from './components/search/search.component';
-=======
 import { ConfirmOfferComponent } from './components/confirm-offer/confirm-offer.component';
 import { GivefeedbackComponent } from './components/givefeedback/givefeedback.component';
 import { TransactionConfirmationComponent } from './components/transactionconfirmation/transactionconfirmation.component';
 
->>>>>>> 8e4ae91f243ef6793dcc729bc464f10e448110d0
 
 
 const appRoutes: Routes = [

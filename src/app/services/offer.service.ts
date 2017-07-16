@@ -25,15 +25,6 @@ export class OfferService {
 
   createOffer(newOffer: Offer): Observable<Object> {
 
-<<<<<<< HEAD
-    this.headers.append('Content-Type', 'application/json');
-
-    //alert(this.headers.get("Authorization"));
-
-    newOffer.user = this.currentUser.userId;
-    
-    return this.http.post(this.apiURL, JSON.stringify(newOffer), {headers: this.headers})
-=======
     if (!this.headers.get("Content-Type"))
       this.headers.append('Content-Type', 'application/json');
 
@@ -41,7 +32,6 @@ export class OfferService {
 
     return this.http.post(this.apiURL, JSON.stringify(newOffer), { headers: this.headers })
 
->>>>>>> 8e4ae91f243ef6793dcc729bc464f10e448110d0
       .map((response: Response) => response.json())
       .catch((response: Response) => Observable.throw(response.status))
   }
