@@ -22,6 +22,7 @@ export class MyordersComponent implements OnInit {
 
   private orders: any[] = [];
   private offers: any[] = [];
+  private myorders: any[] = [];
 
   loadedElementsNumOffers = 0;
   loadedElementsNumOrders = 0;
@@ -59,8 +60,9 @@ export class MyordersComponent implements OnInit {
     this.offerService.getOffers(this.loadedElementsNumOffers).subscribe(offers => {
       for (let i = 0; i < offers.length; i++) {
         for (let j = 0; j < this.orders.length; j++) {
-          if (offers[i]._id == this.orders[j].offer && (offers[i].status == "Ordered" || offers[i].status == "Confirmed")) {
+          if (offers[i]._id == this.orders[j].offer && (offers[i].status === 'Ordered' || offers[i].status === 'Confirmed')) {
             this.offers.push(offers[i]);
+            this.myorders.push(this.orders[j]);
             this.getImageUrl(offers[i]._id);
           } else {
             console.log(offers[i].status);
