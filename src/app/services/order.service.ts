@@ -25,6 +25,13 @@ export class OrderService {
     this.headers.append('Authorization', this.currentUser.token);
   }
 
+  getOrders(loadedElements: Number) {
+    this.prepareRequest();
+
+    this.headers.set('LoadedElements', loadedElements.toString());
+    return this.http.get(this.apiURL, { headers: this.headers }).map(res => res.json());
+  }
+
   getOrder(id: String) {
 
     this.prepareRequest();
@@ -59,5 +66,14 @@ export class OrderService {
       .catch((response: Response) => Observable.throw(response.status))
   }
 
+  cancelOrder(orderID) {
+    try {
+
+      this.prepareRequest();
+
+      return this.http.delete(this.apiURL + "/" + orderID, { headers: this.headers }).map(res => res);
+    } catch (error) {
+    }
+  }
 
 }
