@@ -7,7 +7,6 @@
 
     <div class="list-group">
         <div class="search-results" infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollUpDistance]="-1000000" [infiniteScrollThrottle]="300" (scrolled)="getOrders()">
-
             <a *ngFor="let offer of offers; let i = index" [attr.data-index]="i" class="list-group-item list-group-item-action flex-column align-items-start">
                 <div class="d-flex w-100 justify-content-between row">
                     <div class="col col-md-7">
@@ -38,6 +37,7 @@
                             </div>
                         </div>
 
+
                         <div *ngIf="offer.status!='Ordered' && offer.status!='Confirmed'">
                             <h5 class="mb-1">{{ offer.title }}, <span>Price:</span> <span style="color:#4CAF50; font-size:24px;"> {{ offer.price }} € </span></h5>
                             <span> <small> Published: {{ offer.dateCreated | date:'yMMMd' }} </small> </span>
@@ -50,6 +50,7 @@
                             <p class="mb-1"> <strong> Description: </strong> <br> {{ offer.description }}</p>
                             <small><strong> Ingredients: </strong> <br> {{ offer.ingredients }}</small>
                         </div>
+
 
                     </div>
                     <div class="col col-md-5">
