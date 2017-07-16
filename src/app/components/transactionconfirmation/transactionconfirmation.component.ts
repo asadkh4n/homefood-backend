@@ -13,7 +13,7 @@ import { OrderService } from '../../services/order.service';
 
 export class TransactionConfirmationComponent implements OnInit {
 
-  private order = null;
+  private order;
 
   constructor(private orderService: OrderService,
               private router: Router,

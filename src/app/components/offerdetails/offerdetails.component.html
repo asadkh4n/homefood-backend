@@ -1,62 +1,66 @@
-<html lang="en-US" ng-app="basicApp" ng-controller="MyCtrl">
-<div class="container" style="padding:20px;">
-    <div id="main-content">
-        <div class="news-article">
-            <img style="max-height:200px;" id="{{offer._id}}" src="{{offer.imgUrl}}" alt="Food offer image">
+<div *ngIf="dataAvailable; else elseBlock">
+    <div class="container" style="padding:20px;">
 
-            <p>
-                <app-feedback></app-feedback>
-            </p>
+        <div id="main-content">
+            <div class="news-article">
+                <img style="max-height:200px;" id="{{offer._id}}" src="{{offer.imgUrl}}" alt="Food offer image">
+
+                <div *ngIf='check'>
+                    <app-feedback></app-feedback>
+                </div>
+            </div>
         </div>
-    </div>
-    <div id="news">
-        <div class="article">
-            <h2>{{ offer.title }}</h2>
-            <br />
-            <p>{{ offer.description }}</p>
-            <ul>
-
-
+        <div id="news">
+            <div class="article">
+                <h2>{{ offer.title }}</h2>
                 <br />
-                <li>
-                    <p><b>Price:</b> {{ offer.price }}</p>
-                </li>
-                <li>
-                    <p><b>Place:</b> {{ offer.place }}</p>
-                </li>
-                <li>
-                    <p><b>Pickup Date:</b> {{ date | date:'yMMMd' }}</p>
-                </li>
-                <li>
-                    <p><b>Ingredients:</b> {{ offer.ingredients }}</p>
-                </li>
-                <li>
-                    <p><b>Delivery:</b> {{ offer.deliveryType }}</p>
-                </li>
-                <div *ngIf='offer.halal'>
+                <p>{{ offer.description }}</p>
+                <ul>
+                    <br />
                     <li>
-                        <p><b>Halal:</b>&#10004;</p>
+                        <p><b>Price:</b> {{ offer.price }}</p>
                     </li>
-                </div>
-                <div *ngIf='offer.vegan'>
                     <li>
-                        <p><b>Vegan:</b>&#10004;</p>
+                        <p><b>Place:</b> {{ offer.place }}</p>
                     </li>
-                </div>
-                <div *ngIf='offer.vegetarian'>
                     <li>
-                        <p><b>Vegetarian:</b>&#10004;</p>
+                        <p><b>Pickup Date:</b> {{ date | date:'yMMMd' }}</p>
                     </li>
-                </div>
-                <div *ngIf='offer.bio'>
                     <li>
-                        <p><b>Bio:</b>&#10004;</p>
+                        <p><b>Ingredients:</b> {{ offer.ingredients }}</p>
                     </li>
-                </div>
+                    <li>
+                        <p><b>Delivery:</b> {{ offer.deliveryType }}</p>
+                    </li>
+                    <div *ngIf='offer.halal'>
+                        <li>
+                            <p><b>Halal:</b>&#10004;</p>
+                        </li>
+                    </div>
+                    <div *ngIf='offer.vegan'>
+                        <li>
+                            <p><b>Vegan:</b>&#10004;</p>
+                        </li>
+                    </div>
+                    <div *ngIf='offer.vegetarian'>
+                        <li>
+                            <p><b>Vegetarian:</b>&#10004;</p>
+                        </li>
+                    </div>
+                    <div *ngIf='offer.bio'>
+                        <li>
+                            <p><b>Bio:</b>&#10004;</p>
+                        </li>
+                    </div>
 
-            </ul>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
 
-</html>
+</div>
+<ng-template #elseBlock>
+    <div class="text-center" style="margin-top:20vh;">
+        <legend>Please wait ...</legend>
+    </div>
+</ng-template>

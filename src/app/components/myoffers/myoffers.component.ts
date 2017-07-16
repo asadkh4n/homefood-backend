@@ -10,7 +10,7 @@ import { Observable } from 'rxjs/RX';
 
 import { Http, Headers, Response } from '@angular/http';
 
-import { YesNoModalComponent } from './yes-no-modal/yes-no-modal.component';
+//import { YesNoModalComponent } from './yes-no-modal/yes-no-modal.component';
 
 import { HostListener } from "@angular/core";
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';

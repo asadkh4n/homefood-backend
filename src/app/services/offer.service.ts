@@ -31,6 +31,7 @@ export class OfferService {
     newOffer.user = this.currentUser.userId;
 
     return this.http.post(this.apiURL, JSON.stringify(newOffer), { headers: this.headers })
+
       .map((response: Response) => response.json())
       .catch((response: Response) => Observable.throw(response.status))
   }
@@ -40,6 +41,7 @@ export class OfferService {
     return this.http.get(this.apiURL, { headers: this.headers }).map(res => res.json());
   }
 
+
   getOffer(id: String) {
 
     if (!this.headers.get("Content-Type"))
@@ -48,6 +50,8 @@ export class OfferService {
     return this.http.get(this.apiURL + '/' + id, { headers: this.headers })
       .map(res => res.json());
   }
+
+
 
   getDisplayImage(offerID): Observable<string> {
     return this.http.get(this.apiURL + "/pictures/" + offerID, { headers: this.headers }).map(res => res.json());
@@ -60,23 +64,18 @@ export class OfferService {
     }
   }
 
-  private handleError(error: any): Promise<any> {
-  console.error('An error occurred', error); // for demo purposes only
-  return Promise.reject(error.message || error);
-}
-
   confirmOffer(offerID, confirmationCode) {
     try {
 
       if (!this.headers.get("Content-Type"))
         this.headers.append('Content-Type', 'application/json');
 
-      return this.http.put(this.apiURL + "/confirm/" + offerID, 
-                     { confirmationCode: confirmationCode },
-                     { headers: this.headers })
-                     .map(res =>  res)
-                     .catch(res => { return Observable.of<Response>(res); } );
-      
+      return this.http.put(this.apiURL + "/confirm/" + offerID,
+        { confirmationCode: confirmationCode },
+        { headers: this.headers })
+        .map(res => res)
+        .catch(res => { return Observable.of<Response>(res); });
+
     } catch (error) {
       console.log("sda")
     }

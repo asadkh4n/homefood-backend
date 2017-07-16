@@ -35,8 +35,7 @@ import { OrderService } from './services/order.service';
 import { FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
 import { OfferdetailsComponent } from './components/offerdetails/offerdetails.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
-
-import { YesNoModalComponent } from './components/myoffers/yes-no-modal/yes-no-modal.component';
+import { GivefeedbackComponent } from './components/givefeedback/givefeedback.component';
 import { ConfirmOfferComponent } from './components/confirm-offer/confirm-offer.component';
 
 @NgModule({
@@ -54,8 +53,8 @@ import { ConfirmOfferComponent } from './components/confirm-offer/confirm-offer.
     OfferdetailsComponent,
     FeedbackComponent,
     TransactionConfirmationComponent,
-    YesNoModalComponent,
-    ConfirmOfferComponent
+    ConfirmOfferComponent,
+    GivefeedbackComponent
       ],
   imports: [
     BrowserModule,
@@ -78,10 +77,9 @@ import { ConfirmOfferComponent } from './components/confirm-offer/confirm-offer.
     DatePipe,
     FeedbackService,
     OrderService,
-    YesNoModalComponent
   ],
   bootstrap: [AppComponent],
-  entryComponents: [YesNoModalComponent],
+  //entryComponents: [YesNoModalComponent],
   exports: [
     FileSelectDirective
   ]
