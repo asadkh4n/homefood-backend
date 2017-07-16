@@ -3,5 +3,5 @@ export class Feedback {
     rating: Number;
     user: String;
     offer: String;
-    _id: String;
+  
 }

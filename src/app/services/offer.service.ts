@@ -25,6 +25,7 @@ export class OfferService {
 
   createOffer(newOffer: Offer): Observable<Object> {
 
+<<<<<<< HEAD
     this.headers.append('Content-Type', 'application/json');
 
     //alert(this.headers.get("Authorization"));
@@ -32,22 +33,61 @@ export class OfferService {
     newOffer.user = this.currentUser.userId;
     
     return this.http.post(this.apiURL, JSON.stringify(newOffer), {headers: this.headers})
+=======
+    if (!this.headers.get("Content-Type"))
+      this.headers.append('Content-Type', 'application/json');
+
+    newOffer.user = this.currentUser.userId;
+
+    return this.http.post(this.apiURL, JSON.stringify(newOffer), { headers: this.headers })
+
+>>>>>>> 8e4ae91f243ef6793dcc729bc464f10e448110d0
       .map((response: Response) => response.json())
       .catch((response: Response) => Observable.throw(response.status))
   }
 
   getOffers(loadedElements: Number) {
     this.headers.set('LoadedElements', loadedElements.toString());
-    return this.http.get(this.apiURL, {headers: this.headers}).map(res => res.json());
+    return this.http.get(this.apiURL, { headers: this.headers }).map(res => res.json());
   }
 
+
   getOffer(id: String) {
-    this.headers.append('Content-Type', 'application/json');
-    return this.http.get(this.apiURL + '/' + id, {headers: this.headers})
+
+    if (!this.headers.get("Content-Type"))
+      this.headers.append('Content-Type', 'application/json');
+
+    return this.http.get(this.apiURL + '/' + id, { headers: this.headers })
       .map(res => res.json());
   }
 
+
+
   getDisplayImage(offerID): Observable<string> {
-    return this.http.get(this.apiURL + "/pictures/" + offerID, {headers: this.headers}).map(res => res.json());
+    return this.http.get(this.apiURL + "/pictures/" + offerID, { headers: this.headers }).map(res => res.json());
+  }
+
+  deleteOffer(offerID) {
+    try {
+      return this.http.delete(this.apiURL + "/" + offerID, { headers: this.headers }).map(res => res);
+    } catch (error) {
+    }
+  }
+
+  confirmOffer(offerID, confirmationCode) {
+    try {
+
+      if (!this.headers.get("Content-Type"))
+        this.headers.append('Content-Type', 'application/json');
+
+      return this.http.put(this.apiURL + "/confirm/" + offerID,
+        { confirmationCode: confirmationCode },
+        { headers: this.headers })
+        .map(res => res)
+        .catch(res => { return Observable.of<Response>(res); });
+
+    } catch (error) {
+      console.log("sda")
+    }
   }
 }

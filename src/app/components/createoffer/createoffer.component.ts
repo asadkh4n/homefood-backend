@@ -22,7 +22,7 @@ import * as myGlobals from '../../../globals';
 export class CreateofferComponent implements OnInit {
   public uploader:FileUploader = new FileUploader({url: "http://localhost:3000/api/offer/pictures"});
   
-  offer: Offer = new Offer();
+  offer: Offer;
   deliveryTypes = [
         "Seller will deliver the food",
         "Buyer will pickup the food"
@@ -44,6 +44,7 @@ export class CreateofferComponent implements OnInit {
   {
             this.toastr.setRootViewContainerRef(vcr);
             this.titleService.setTitle("Create new offer");
+            this.offer = new Offer();
   }
 
   ngOnInit() {
@@ -63,7 +64,7 @@ export class CreateofferComponent implements OnInit {
     this.offer.halal = Math.random() >= 0.5;
   }
   createOffer(event) {
-    
+
     //reassigning date to Date object
     this.offer.handoutDatetimeStart = this.convertDate(this.offer.handoutDatetimeStart);
     this.offer.handoutDatetimeEnd = this.convertDate(this.offer.handoutDatetimeEnd);
@@ -86,17 +87,11 @@ export class CreateofferComponent implements OnInit {
             }
 
             this.toastr.success('You have sucessfully created offer!', null, { showCloseButton: true });
-            
+
             setTimeout(()=>{ 
               this.router.navigate(['/myoffers']); 
             }, 1000)
             
-            return;
       });
-/*      .subscribe( success => {
-        if (success) {
-          this.router.navigate(['/home']);
-        }
-      });*/
   }
 }

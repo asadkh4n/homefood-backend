@@ -3,7 +3,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { JsonpModule } from '@angular/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 
@@ -36,9 +36,8 @@ import { OrderService } from './services/order.service';
 import { FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
 import { OfferdetailsComponent } from './components/offerdetails/offerdetails.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
-
-
-
+import { GivefeedbackComponent } from './components/givefeedback/givefeedback.component';
+import { ConfirmOfferComponent } from './components/confirm-offer/confirm-offer.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +54,12 @@ import { FeedbackComponent } from './components/feedback/feedback.component';
     OfferdetailsComponent,
     FeedbackComponent,
     TransactionConfirmationComponent,
+<<<<<<< HEAD
     MySearchComponent
+=======
+    ConfirmOfferComponent,
+    GivefeedbackComponent
+>>>>>>> 8e4ae91f243ef6793dcc729bc464f10e448110d0
       ],
   imports: [
     BrowserModule,
@@ -69,7 +73,6 @@ import { FeedbackComponent } from './components/feedback/feedback.component';
     ToastModule.forRoot(),
     CarouselModule.forRoot(),
     InfiniteScrollModule
-
   ],
   providers: [
     AuthGuard,
@@ -78,10 +81,10 @@ import { FeedbackComponent } from './components/feedback/feedback.component';
     OfferService,
     DatePipe,
     FeedbackService,
-    OrderService
+    OrderService,
   ],
   bootstrap: [AppComponent],
-
+  //entryComponents: [YesNoModalComponent],
   exports: [
     FileSelectDirective
   ]
