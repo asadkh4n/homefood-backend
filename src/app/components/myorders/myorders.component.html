@@ -8,7 +8,7 @@
   <div class="list-group">
     <div class="search-results" infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollUpDistance]="-1000000" [infiniteScrollThrottle]="300" (scrolled)="getOrders()">
 
-      <a href="/offerdetails/{{offer._id}}" *ngFor="let offer of offers; let i = index" [attr.data-index]="i" class="list-group-item list-group-item-action flex-column align-items-start">
+      <a  *ngFor="let offer of offers; let i = index" [attr.data-index]="i" class="list-group-item list-group-item-action flex-column align-items-start">
         <div class="d-flex w-100 justify-content-between row" *ngFor="let order of myorders; let j = index">
           <div class="col col-md-7">
 
