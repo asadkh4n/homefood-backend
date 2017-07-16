@@ -17,7 +17,7 @@
                 <div class="col-lg-10">
                     <input type="text" name="inputPrice" [(ngModel)]="offer.price" class="form-control" id="inputPrice" placeholder="Price" required pattern="[0-9]*">
 
-                  <div *ngIf="formErrors.inputPrice" class="alert alert-danger">{{formErrors.inputPrice}}</div>
+                    <div *ngIf="formErrors.inputPrice" class="alert alert-danger">{{formErrors.inputPrice}}</div>
                 </div>
             </div>
 
@@ -26,7 +26,7 @@
                 <div class="col-lg-10">
                     <input type="text" name="inputIngredients" [(ngModel)]="offer.ingredients" class="form-control" id="inputIngredients" placeholder="Ingredients" required minlength="4" maxlength="24" pattern="[a-zA-ZäöüßÄÖÜ]*">
 
-                  <div *ngIf="formErrors.inputIngredients" class="alert alert-danger">{{formErrors.inputIngredients}}</div>
+                    <div *ngIf="formErrors.inputIngredients" class="alert alert-danger">{{formErrors.inputIngredients}}</div>
                 </div>
             </div>
 
@@ -36,7 +36,7 @@
                     <select class="form-control" id="select" [(ngModel)]="offer.deliveryType" name="inputDeliveryType" required>
                     <option *ngFor="let dt of deliveryTypes" [ngValue]="dt">{{dt}}</option>
                     </select>
-                  <div *ngIf="formErrors.inputDeliveryType" class="alert alert-danger">{{formErrors.inputDeliveryType}}</div>
+                    <div *ngIf="formErrors.inputDeliveryType" class="alert alert-danger">{{formErrors.inputDeliveryType}}</div>
                 </div>
             </div>
 
@@ -45,7 +45,7 @@
                 <div class="col-lg-10">
                     <input type="text" name="inputPlace" [(ngModel)]="offer.place" class="form-control" id="inputPlace" placeholder="Location" required minlength="4" maxlength="10" pattern="[a-zA-ZäöüßÄÖÜ]*">
 
-                  <div *ngIf="formErrors.inputPlace" class="alert alert-danger">{{formErrors.inputPlace}}</div>
+                    <div *ngIf="formErrors.inputPlace" class="alert alert-danger">{{formErrors.inputPlace}}</div>
                 </div>
             </div>
 
@@ -55,7 +55,7 @@
                 <div class="col-lg-10">
                     <div class="input-group">
                         <input class="form-control" placeholder="yyyy-mm-dd" name="handoutDatetimeStart" [(ngModel)]="offer.handoutDatetimeStart" ngbDatepicker #d1="ngbDatepicker" (focus)="d1.open()" required>
-                      <div *ngIf="formErrors.handoutDatetimeStart" class="alert alert-danger">{{formErrors.handoutDatetimeStart}}</div>
+                        <div *ngIf="formErrors.handoutDatetimeStart" class="alert alert-danger">{{formErrors.handoutDatetimeStart}}</div>
                         <div class="input-group-addon" (click)="d1.toggle()">
                             <i class="fa fa-calendar" style="width: 1.2rem; height: 1rem; cursor: pointer;"></i>
                         </div>
@@ -69,8 +69,8 @@
                 <div class="col-lg-10">
                     <div class="input-group">
                         <input class="form-control" placeholder="yyyy-mm-dd" name="handoutDatetimeEnd" [(ngModel)]="offer.handoutDatetimeEnd" ngbDatepicker #d2="ngbDatepicker" (focus)="d2.open()" required>
-                      <div *ngIf="formErrors.handoutDatetimeEnd" class="alert alert-danger">{{formErrors.handoutDatetimeEnd}}</div>
-                      <div class="input-group-addon" (click)="d2.toggle()">
+                        <div *ngIf="formErrors.handoutDatetimeEnd" class="alert alert-danger">{{formErrors.handoutDatetimeEnd}}</div>
+                        <div class="input-group-addon" (click)="d2.toggle()">
                             <i class="fa fa-calendar" style="width: 1.2rem; height: 1rem; cursor: pointer;"></i>
                         </div>
                     </div>
@@ -83,8 +83,8 @@
                 <label for="textArea" class="col-lg-2 control-label">Description</label>
                 <div class="col-lg-10">
                     <textarea [(ngModel)]="offer.description" name="inputDescription" class="form-control" rows="3" id="textArea" required></textarea>
-                  <div *ngIf="formErrors.inputDescription" class="alert alert-danger">{{formErrors.inputDescription}}</div>
-                  <span class="help-block">Enter specifications and details of your offer.</span>
+                    <div *ngIf="formErrors.inputDescription" class="alert alert-danger">{{formErrors.inputDescription}}</div>
+                    <span class="help-block">Enter specifications and details of your offer.</span>
                 </div>
             </div>
 
@@ -171,10 +171,6 @@
             <div class="text-center">
                 <button (click)="createOffer($event)" class="btn btn-success btn-lg pointer" [disabled]="!createofferForm.form.valid">Post the offer</button>
             </div>
-            <div class="text-center">
-                <button (click)="createRandomOffer($event)" class="btn btn-success btn-lg pointer">Random offer</button>
-            </div>
-
         </fieldset>
     </form>
 
