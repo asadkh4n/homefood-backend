@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, ViewContainerRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { OfferService } from '../../services/offer.service';
+import { OrderService } from '../../services/order.service';
 import { Offer } from '../../models/offer';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
@@ -18,9 +19,11 @@ export class ConfirmOfferComponent implements OnInit, OnDestroy {
   offer: Offer;
   confirmationCode: String;
   dataAvailable = false;
+  sellercCodePart: String;
 
   constructor(private route: ActivatedRoute,
     private offerService: OfferService,
+    private orderService: OrderService,
     private router: Router,
     private titleService: Title,
     public toastr: ToastsManager,
@@ -39,8 +42,11 @@ export class ConfirmOfferComponent implements OnInit, OnDestroy {
       this.offer.handoutDatetimeStart = new Date(offer.handoutDatetimeStart);
       this.offer.handoutDatetimeEnd = new Date(offer.handoutDatetimeEnd);
 
-      this.dataAvailable = true;
+      this.orderService.getSellerCodePart(this.id).subscribe(data => {
+        this.sellercCodePart = data.sellersCodePart;
+      });
 
+      this.dataAvailable = true;
     });
   }
   ngOnInit() {/*

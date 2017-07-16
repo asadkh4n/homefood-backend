@@ -1,0 +1,105 @@
+<div *ngIf="dataAvailable; else elseBlock">
+    <div id="makeOrderForm" class="container flex-center">
+        <form class="form-horizontal">
+            <fieldset class="text-center">
+                <legend>Offer:
+                    <h4 class="mb-1">{{ offer.title }}, <span>Price:</span> <span style="color:#4CAF50; font-size:24px;"> {{ offer.price }} € </span></h4>
+                </legend>
+                <br>
+                <legend>The offer is available from: {{ offer.handoutDatetimeStart | date:'yMMMd' }} until {{ offer.handoutDatetimeEnd | date:'yMMMd' }}
+                </legend>
+                <legend>Delivery type for this offer is: {{ offer.deliveryType }}
+                </legend>
+
+                <hr>
+
+                <div *ngIf="orderCreated; else elseBlockOrderCreated">
+                    <legend>
+                        <h5 class="mb-1">Your part of transaction code is:
+                            <strong> {{ codeBuyersPart }} </strong> , please provide it to the seller at handout. </h5>
+                    </legend>
+                </div>
+                <ng-template #elseBlockOrderCreated>
+
+
+                    <div class="form-group">
+
+                        <div class="row">
+                            <div class="col col-lg-2">
+                                <label for="select" class="control-label"> Payment options </label>
+                            </div>
+                            <div class="col-lg-8">
+                                <select class="form-control" id="select" [(ngModel)]="order.paymentOption" name="order.paymentOption">
+                              <option *ngFor="let po of orderPaymentOptions" [ngValue]="po">{{po}}</option>
+                            </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div *ngIf="order.paymentOption=='Credit Card'; else elseBlockForPayment">
+
+
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col col-lg-2">
+                                    <label for="name" class="control-label"> Name on the card </label>
+                                </div>
+
+                                <div class="col-lg-8">
+                                    <input type="text" name="order.cardName" [(ngModel)]="order.cardName" class="form-control" id="name" placeholder="Name">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col col-lg-2">
+                                    <label for="select" class="control-label"> Card number </label>
+                                </div>
+                                <div class="col-lg-8">
+                                    <input type="text" name="order.credtCardNumber" [(ngModel)]="order.credtCardNumber " class="form-control " id="inputPrice " placeholder="Card number ">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col col-lg-2">
+                                <label for="select" class="control-label"> Expiration date </label>
+                            </div>
+                            <div class="col-lg-2">
+                                <select class="form-control" id="select" [(ngModel)]="month" name="month">
+                               <option *ngFor="let mon of monthsOptions" [ngValue]="mon">{{mon}}</option>
+                            </select>
+                            </div>
+                            <div class="col-lg-2">
+                                <select class="form-control" id="select" [(ngModel)]="year" name="year">
+                               <option *ngFor="let y of yearsOptions" [ngValue]="y">{{y}}</option>
+                            </select>
+                            </div>
+                        </div>
+
+                        <div class="text-center actionButton">
+                            <button type="submit " (click)="createOrder() " class="btn btn-info btn-lg pointer ">Make order</button>
+                        </div>
+
+                    </div>
+
+                    <ng-template #elseBlockForPayment>
+                        <div class="text-center text-warning">
+                            <legend>Please choose payment option.</legend>
+                        </div>
+                    </ng-template>
+                </ng-template>
+
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+<ng-template #elseBlock>
+    <div class="text-center " style="margin-top:20vh; ">
+        <legend>Please wait ...</legend>
+    </div>
+</ng-template>

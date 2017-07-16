@@ -62,7 +62,6 @@ export class MyoffersComponent implements OnInit {
       for (var i = 0; i < offers.length; i++) {
         this.offers.push(offers[i]);
         this.getImageUrl(offers[i]._id);
-
       }
       //this.offers = offers;
       this.loadedElementsNum += offers.length;

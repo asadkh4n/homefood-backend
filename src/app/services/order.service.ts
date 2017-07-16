@@ -15,29 +15,48 @@ export class OrderService {
   private currentUser: any;
 
   constructor(private http: Http) {
+
+  }
+
+  private prepareRequest() {
     this.headers = new Headers();
 
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.headers.append('Authorization', this.currentUser.token);
-   }
-
-  getOrder(id: String) {
-    this.headers.append('Content-Type', 'application/json');
-
-    return this.http.get(this.apiURL + '/' + id , {headers: this.headers})
-    .map(res => res.json());
-    }
-
-  getOrders(loadedElements: Number) {
-    this.headers.set('LoadedElements', loadedElements.toString());
-    return this.http.get(this.apiURL, { headers: this.headers }).map(res => res.json());
   }
 
-  cancelOrder(orderID) {
-    try {
-      return this.http.delete(this.apiURL + '/' + orderID, { headers: this.headers }).map(res => res);
-    } catch (error) {
-    }
+  getOrder(id: String) {
+
+    this.prepareRequest();
+
+    if (!this.headers.get("Content-Type"))
+      this.headers.append('Content-Type', 'application/json');
+
+    return this.http.get(this.apiURL + '/' + id, { headers: this.headers })
+      .map(res => res.json());
+  }
+
+  getSellerCodePart(offerID) {
+    this.prepareRequest();
+
+    if (!this.headers.get("Content-Type"))
+      this.headers.append('Content-Type', 'application/json');
+
+    return this.http.get(this.apiURL + '/code/' + offerID, { headers: this.headers })
+      .map(res => res.json());
+
+  }
+
+  createOrder(newOrder: Order): Observable<Object> {
+    this.prepareRequest();
+
+    if (!this.headers.get("Content-Type"))
+      this.headers.append('Content-Type', 'application/json');
+
+      return this.http.post(this.apiURL, JSON.stringify(newOrder), { headers: this.headers })
+
+      .map((response: Response) => response.json())
+      .catch((response: Response) => Observable.throw(response.status))
   }
 
 

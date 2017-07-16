@@ -1,7 +1,10 @@
 export class Order {
-    user: String;
     offer: String;
-    dateTime: Date;
-    randNum: String;
-    status: String;
+    paymentOption: String;
+    price: Number;
+    cardName: String;
+    credtCardNumber: String;
+    expiringMonth: String;
+    expiringYear: String;
+
 }

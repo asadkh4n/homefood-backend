@@ -68,5 +68,10 @@ export class OfferdetailsComponent implements OnInit {
     })
   }
 
+  retirectToMakeOrder(offerID)
+  {
+    this.router.navigate(['/make-order', offerID ]);
+  } 
+
 
 }

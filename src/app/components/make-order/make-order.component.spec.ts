@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { YesNoModalComponent } from './yes-no-modal.component';
+import { MakeOrderComponent } from './make-order.component';
 
-describe('YesNoModalComponent', () => {
-  let component: YesNoModalComponent;
-  let fixture: ComponentFixture<YesNoModalComponent>;
+describe('MakeOrderComponent', () => {
+  let component: MakeOrderComponent;
+  let fixture: ComponentFixture<MakeOrderComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ YesNoModalComponent ]
+      declarations: [ MakeOrderComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(YesNoModalComponent);
+    fixture = TestBed.createComponent(MakeOrderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

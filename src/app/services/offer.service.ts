@@ -17,6 +17,10 @@ export class OfferService {
   private currentUser: any;
 
   constructor(private http: Http) {
+  }
+
+  private prepareRequest()
+  {
     this.headers = new Headers();
 
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -24,6 +28,8 @@ export class OfferService {
   }
 
   createOffer(newOffer: Offer): Observable<Object> {
+
+    this.prepareRequest();
 
     if (!this.headers.get("Content-Type"))
       this.headers.append('Content-Type', 'application/json');
@@ -37,12 +43,23 @@ export class OfferService {
   }
 
   getOffers(loadedElements: Number) {
+    this.prepareRequest();
+
     this.headers.set('LoadedElements', loadedElements.toString());
     return this.http.get(this.apiURL, { headers: this.headers }).map(res => res.json());
   }
 
+  getAllOffers(loadedElements: Number) {
+    this.prepareRequest();
+
+    this.headers.set('LoadedElements', loadedElements.toString());
+    return this.http.get(this.apiURL + "/search", { headers: this.headers }).map(res => res.json());
+  }
+
 
   getOffer(id: String) {
+
+    this.prepareRequest();
 
     if (!this.headers.get("Content-Type"))
       this.headers.append('Content-Type', 'application/json');
@@ -52,13 +69,18 @@ export class OfferService {
   }
 
 
-
   getDisplayImage(offerID): Observable<string> {
+
+    this.prepareRequest();
+
     return this.http.get(this.apiURL + "/pictures/" + offerID, { headers: this.headers }).map(res => res.json());
   }
 
   deleteOffer(offerID) {
     try {
+
+      this.prepareRequest();
+
       return this.http.delete(this.apiURL + "/" + offerID, { headers: this.headers }).map(res => res);
     } catch (error) {
     }
@@ -66,6 +88,8 @@ export class OfferService {
 
   confirmOffer(offerID, confirmationCode) {
     try {
+
+      this.prepareRequest();
 
       if (!this.headers.get("Content-Type"))
         this.headers.append('Content-Type', 'application/json');

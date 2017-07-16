@@ -1,9 +1,8 @@
 <div class="container" style="padding:20px;">
 
-    <div class="row" >
+    <div class="row">
         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-            <input type="text" name="searchtext" class="form-control" id="search" placeholder="Search offers" [(ngModel)]="searchCriteria.title"
-                required autofocus>
+            <input type="text" name="searchtext" class="form-control" id="search" placeholder="Search offers" [(ngModel)]="searchCriteria.title" required autofocus>
             <button class="btn btn-success" (click)="searchOffers($event, searchCriteria)"> Search</button>
         </div>
     </div>
@@ -53,8 +52,7 @@
         <hr>
 
         <div class="list-group">
-            <div class="search-results" infinite-scroll [infiniteScrollDistance]="1" [infiniteScrollUpDistance]="-10" [infiniteScrollThrottle]="10"
-                (scrolled)="getOffers()">
+            <div class="search-results" infinite-scroll [infiniteScrollDistance]="1" [infiniteScrollUpDistance]="-10" [infiniteScrollThrottle]="10" (scrolled)="getOffers()">
                 <a *ngFor="let offer of filteredOffers; let i = index" href="/offerdetails/{{offer._id}}" [attr.data-index]="i" class="list-group-item list-group-item-action flex-column align-items-start">
                     <div class="d-flex w-100 justify-content-between row">
                         <div class="col col-md-7">
@@ -73,7 +71,6 @@
                         </div>
                         <br>
                     </div>
-
                 </a>
             </div>
         </div>

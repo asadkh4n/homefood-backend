@@ -39,6 +39,7 @@ import { OfferdetailsComponent } from './components/offerdetails/offerdetails.co
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { GivefeedbackComponent } from './components/givefeedback/givefeedback.component';
 import { ConfirmOfferComponent } from './components/confirm-offer/confirm-offer.component';
+import { MakeOrderComponent } from './components/make-order/make-order.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { ConfirmOfferComponent } from './components/confirm-offer/confirm-offer.
     TransactionConfirmationComponent,
     MySearchComponent,
     ConfirmOfferComponent,
-    GivefeedbackComponent
+    GivefeedbackComponent,
+    MakeOrderComponent
       ],
   imports: [
     BrowserModule,
