@@ -1,68 +1,68 @@
 <div class="container" style="padding:20px;">
 
-  <div class="text-center">
-    <h4>My orders</h4>
-  </div>
-  <hr>
-
-  <div class="list-group">
-    <div class="search-results" infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollUpDistance]="-1000000" [infiniteScrollThrottle]="300" (scrolled)="getOrders()">
-
-      <a href="/offerdetails/{{offer._id}}" *ngFor="let offer of offers; let i = index" [attr.data-index]="i" class="list-group-item list-group-item-action flex-column align-items-start">
-        <div class="d-flex w-100 justify-content-between row">
-          <div class="col col-md-7">
-
-            <div *ngIf="offer.status=='Ordered'; else confirmedBlock">
-              <div class="wrapper">
-                <div id="left">
-                  <h5 class="mb-1">{{ offer.title }}, <span>Price:</span> <span style="color:#4CAF50; font-size:24px;"> {{ offer.price }} € </span></h5>
-                  <span> <small> Published: {{ offer.dateCreated | date:'yMMMd' }} </small> </span>
-                </div>
-                <div id="right">
-                  <h3><span class="badge badge-success"> PENDING </span></h3>
-                </div>
-              </div>
-            </div>
-
-            <div #confirmedBlock *ngIf="offer.status=='Confirmed'; else elseBlock">
-              <div class="wrapper">
-                <div id="leftconfirmed">
-                  <h5 class="mb-1">{{ offer.title }}, <span>Price:</span> <span style="color:#4CAF50; font-size:24px;"> {{ offer.price }} € </span></h5>
-                  <span> <small> Published: {{ offer.dateCreated | date:'yMMMd' }} </small> </span>
-                </div>
-                <div id="rightconfirmed">
-                  <h3><span class="badge badge-success"> CONFIRMED </span></h3>
-                  <button (click)="this.redirectToGiveFeedback(offer._id)" style="display: inline;float: none;" class="btn btn-info pointer">Rate & Comment</button>
-                </div>
-              </div>
-            </div>
-
-            <ng-template #elseBlock>
-              <h5 class="mb-1">{{ offer.title }}, <span>Price:</span> <span style="color:#4CAF50; font-size:24px;"> {{ offer.price }} € </span></h5>
-              <span> <small> Published: {{ offer.dateCreated | date:'yMMMd' }} </small> </span>
-            </ng-template>
-
-            <br>
-            <br>
-
-            <div class="">
-              <p class="mb-1"> <strong> Description: </strong> <br> {{ offer.description }}</p>
-              <small><strong> Ingredients: </strong> <br> {{ offer.ingredients }}</small>
-            </div>
-
-          </div>
-          <div class="col col-md-5">
-            <img style="max-height:200px;" class="pull-right" id="{{offer._id}}" src="{{offer.imgUrl}}" alt="Food offer image">
-            <!--<img style="max-height:200px;" id="offer._id" src="{{offer. this.displayImageUrl}}" alt="Food offer image">-->
-          </div>
-          <br>
-        </div>
-        <div *ngFor="let orders of myorders; let j = index">
-          <button (click)="this.cancelOrder(orders._id)" style="display: inline;float: none;" class="btn btn-danger pointer">Cancel Order</button>
-        </div>
-      </a>
-
+    <div class="text-center">
+        <h4>My orders</h4>
     </div>
-  </div>
+    <hr>
+
+    <div class="list-group">
+        <div class="search-results" infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollUpDistance]="-1000000" [infiniteScrollThrottle]="300" (scrolled)="getOrders()">
+
+            <a href="/offerdetails/{{offer._id}}" *ngFor="let offer of offers; let i = index" [attr.data-index]="i" class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between row">
+                    <div class="col col-md-7">
+
+                        <div *ngIf="offer.status=='Ordered'; else confirmedBlock">
+                            <div class="wrapper">
+                                <div id="left">
+                                    <h5 class="mb-1">{{ offer.title }}, <span>Price:</span> <span style="color:#4CAF50; font-size:24px;"> {{ offer.price }} € </span></h5>
+                                    <span> <small> Published: {{ offer.dateCreated | date:'yMMMd' }} </small> </span>
+                                </div>
+                                <div id="right">
+                                    <h3><span class="badge badge-success"> PENDING </span></h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div #confirmedBlock *ngIf="offer.status=='Confirmed'; else elseBlock">
+                            <div class="wrapper">
+                                <div id="leftconfirmed">
+                                    <h5 class="mb-1">{{ offer.title }}, <span>Price:</span> <span style="color:#4CAF50; font-size:24px;"> {{ offer.price }} € </span></h5>
+                                    <span> <small> Published: {{ offer.dateCreated | date:'yMMMd' }} </small> </span>
+                                </div>
+                                <div id="rightconfirmed">
+                                    <h3><span class="badge badge-success"> CONFIRMED </span></h3>
+                                    <button (click)="this.redirectToGiveFeedback(offer._id)" style="display: inline;float: none;" class="btn btn-info pointer">Rate & Comment</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <ng-template #elseBlock>
+                            <h5 class="mb-1">{{ offer.title }}, <span>Price:</span> <span style="color:#4CAF50; font-size:24px;"> {{ offer.price }} € </span></h5>
+                            <span> <small> Published: {{ offer.dateCreated | date:'yMMMd' }} </small> </span>
+                        </ng-template>
+
+                        <br>
+                        <br>
+
+                        <div class="">
+                            <p class="mb-1"> <strong> Description: </strong> <br> {{ offer.description }}</p>
+                            <small><strong> Ingredients: </strong> <br> {{ offer.ingredients }}</small>
+                        </div>
+
+                    </div>
+                    <div class="col col-md-5">
+                        <img style="max-height:200px;" class="pull-right" id="{{offer._id}}" src="{{offer.imgUrl}}" alt="Food offer image">
+                        <!--<img style="max-height:200px;" id="offer._id" src="{{offer. this.displayImageUrl}}" alt="Food offer image">-->
+                    </div>
+                    <br>
+                </div>
+                <div class="row">
+                    <button (click)="this.cancelOrder(orders._id)" style="display: inline;float: none;" class="btn btn-danger pointer">Cancel Order</button>
+                </div>
+            </a>
+
+        </div>
+    </div>
 
 </div>

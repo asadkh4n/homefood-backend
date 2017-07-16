@@ -66,10 +66,13 @@ export class MySearchComponent implements OnInit {
     this.offerService.getOffers(this.loadedElementsNum).subscribe(offers => {
 
       for (var i = 0; i < offers.length; i++) {
-        this.offers.push(offers[i]);
 
-        this.getImageUrl(offers[i]._id);
+        if(offers[i].status != "Ordered")
+        {
+          this.offers.push(offers[i]);
 
+          this.getImageUrl(offers[i]._id);
+        }
       }
       //this.offers = offers;
       this.loadedElementsNum += offers.length;
