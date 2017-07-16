@@ -33,7 +33,7 @@ export class MyordersComponent implements OnInit {
               private offerService: OfferService,
               private router: Router,
               private titleService: Title) {
-    this.titleService.setTitle("My orders");
+    this.titleService.setTitle('My orders');
   }
 
   ngOnInit() {
