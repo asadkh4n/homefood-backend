@@ -33,47 +33,70 @@ export class MySearchComponent implements OnInit {
   public displayImageUrl = "";
 
   constructor(private offerService: OfferService,
-              private router: Router,
-              private titleService: Title,
-              private datePipe: DatePipe,
-              private sanitizer: DomSanitizer,
-              private http:Http) {
-                //this.titleService.setTitle("My offers");
-              }
+    private router: Router,
+    private titleService: Title,
+    private datePipe: DatePipe,
+    private sanitizer: DomSanitizer,
+    private http: Http) {
+    //this.titleService.setTitle("My offers");
+  }
 
   ngOnInit() {
-    this.getOffers();
+    this.getAllOffers();
+  }
+
+  getAllOffers() {
+    this.offerService.getAllOffers(this.loadedElementsNum).subscribe(offers => {
+
+      console.log("RETREIVED", offers.length);
+
+      for (var i = 0; i < offers.length; i++) {
+        this.offers.push(offers[i]);
+
+        this.getImageUrl(offers[i]._id);
+
+      }
+
+      console.log("LOADED AFTER FOR ELEMENTS:", this.offers.length)
+      this.loadedElementsNum += offers.length;
+    });
   }
 
   getOffers() {
-      this.offerService.getOffers(this.loadedElementsNum).subscribe(offers => {
+    this.offerService.getOffers(this.loadedElementsNum).subscribe(offers => {
 
-        console.log(this.loadedElementsNum);
+      for (var i = 0; i < offers.length; i++) {
+        this.offers.push(offers[i]);
 
-        for (var i = 0; i < offers.length; i++) {
-          this.offers.push(offers[i]);
+        this.getImageUrl(offers[i]._id);
 
-          this.getImageUrl(offers[i]._id);
+      }
+      //this.offers = offers;
+      this.loadedElementsNum += offers.length;
 
-        }
-        //this.offers = offers;
-        this.loadedElementsNum += offers.length;
-
-      })
+    })
   }
 
   searchOffers($event, searchquery) {
-    this.filteredOffers = this.offers.filter( (item) => {
-      let match:boolean = true;
-      match = searchquery.title == null || item.title.toLowerCase().indexOf(searchquery.title.toLowerCase()) > -1
-      match = match && ( searchquery.bio == null ||  searchquery.bio == item.bio);
-      match = match && ( searchquery.vegan == null ||  searchquery.vegan == item.vegan);
-      match = match && ( searchquery.vegetarian == null ||  searchquery.vegetarian == item.vegetarian);
-      match = match && ( searchquery.halal == null ||  searchquery.halal == item.halal);
-      return match          
-    }
-   );
-  console.log(this.filteredOffers);
+  
+    this.filteredOffers = this.offers.filter((item) => {
+
+      try {
+        let match: boolean = true;
+        match = searchquery.title == null || item.title.toLowerCase().indexOf(searchquery.title.toLowerCase()) > -1
+        match = match && (searchquery.bio == null || searchquery.bio == item.bio);
+        match = match && (searchquery.vegan == null || searchquery.vegan == item.vegan);
+        match = match && (searchquery.vegetarian == null || searchquery.vegetarian == item.vegetarian);
+        match = match && (searchquery.halal == null || searchquery.halal == item.halal);
+        return match
+        
+      } catch (error) {
+      }
+
+
+
+    });
+    console.log(this.filteredOffers);
   }
 
   checkOfferID(id, query) {
@@ -81,7 +104,7 @@ export class MySearchComponent implements OnInit {
   }
 
   getImageUrl(offerID) {
-    return this.offerService.getDisplayImage(offerID).subscribe(imgSrc =>{
+    return this.offerService.getDisplayImage(offerID).subscribe(imgSrc => {
       this.offers.find(x => x._id == offerID).imgUrl = imgSrc;
     });
   }

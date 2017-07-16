@@ -84,9 +84,12 @@ export class CreateofferComponent implements OnInit {
                 });
 
                 this.uploader.uploadAll();
-            }
 
-            this.toastr.success('You have sucessfully created offer!', null, { showCloseButton: true });
+                this.toastr.success('You have sucessfully created offer!', null, { showCloseButton: true });
+            }
+            else{
+                this.toastr.success('Error in offer creation, please try later.', null, { showCloseButton: true });
+            }
 
             setTimeout(()=>{ 
               this.router.navigate(['/myoffers']); 

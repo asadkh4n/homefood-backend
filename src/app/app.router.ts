@@ -16,8 +16,7 @@ import { MySearchComponent } from './components/search/search.component';
 import { ConfirmOfferComponent } from './components/confirm-offer/confirm-offer.component';
 import { GivefeedbackComponent } from './components/givefeedback/givefeedback.component';
 import { TransactionConfirmationComponent } from './components/transactionconfirmation/transactionconfirmation.component';
-
-
+import { MakeOrderComponent } from './components/make-order/make-order.component';
 
 const appRoutes: Routes = [
     {
@@ -65,6 +64,11 @@ const appRoutes: Routes = [
     {
         path: 'transactionconfirmation/:id',
         component: TransactionConfirmationComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'make-order/:id',
+        component: MakeOrderComponent,
         canActivate: [AuthGuard]
     }
 ];
