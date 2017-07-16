@@ -4,6 +4,7 @@ import { Offer } from '../../models/offer';
 import { Feedback } from '../../models/feedback';
 import { FeedbackService } from '../../services/feedback.service';
 import { OrderService } from '../../services/order.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-givefeedback',
   templateUrl: './givefeedback.component.html',
@@ -16,7 +17,8 @@ private order;
 private user_id = "d";
 private offer_id;
 constructor(private feedbackService: FeedbackService,
-            private orderService: OrderService
+            private orderService: OrderService,
+            private router: Router
               ) { }
 
   ngOnInit() {
@@ -30,6 +32,10 @@ constructor(private feedbackService: FeedbackService,
           .subscribe( data => {
             var createdFeedback = JSON.parse(JSON.stringify(data));
     });
+    var of = this.offer_id;
+     setTimeout(()=>{ 
+              this.router.navigate(['/myoffers']); 
+            }, 1000)
   }
   getOrder(){
     var url = location.pathname;
