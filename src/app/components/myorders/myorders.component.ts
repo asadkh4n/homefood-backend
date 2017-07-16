@@ -93,8 +93,8 @@ export class MyordersComponent implements OnInit {
     });
   }
 
-  redirectToGiveFeedback(offerID) {
-    this.router.navigate(['/givefeedback', offerID ]);
+  redirectToGiveFeedback(orderID) {
+    this.router.navigate(['/givefeedback', orderID ]);
   }
 
 
