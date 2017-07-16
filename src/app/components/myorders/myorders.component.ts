@@ -48,7 +48,6 @@ export class MyordersComponent implements OnInit {
         this.getOrders();
       }, 1200)
     }
-
     this.getOffersFromOrders();
   }
 
@@ -62,15 +61,13 @@ export class MyordersComponent implements OnInit {
   }
 
   getOffersFromOrders() {
-    this.getOrders();
     this.offerService.getOffers(this.loadedElementsNumOffers).subscribe(offers => {
       for (let i = 0; i < offers.length; i++) {
         for (let j = 0; j < this.orders.length; j++) {
           if (offers[i]._id == this.orders[j].offer) {
+            console.log("test");
             this.offers.push(offers[i]);
             this.getImageUrl(offers[i]._id);
-          } else {
-            console.log("noooeees");
           }
         }
       }
