@@ -1,0 +1,82 @@
+<div class="container" style="padding:20px;">
+
+    <div class="row" >
+        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <input type="text" name="searchtext" class="form-control" id="search" placeholder="Search offers" [(ngModel)]="searchCriteria.title"
+                required autofocus>
+            <button class="btn btn-success" (click)="searchOffers($event, searchCriteria)"> Search</button>
+        </div>
+    </div>
+    <div class="row" style="color:snow;">
+        <div class="col">Preferences :</div>
+        <div class="col">
+            <label>
+                        <input type="checkbox"
+                            name="vegan"
+                            [(ngModel)]="searchCriteria.vegan"/>
+                            Vegan
+                    </label>
+        </div>
+        <div class="col">
+            <label>
+                        <input type="checkbox"
+                            name="vegetarian"
+                            [(ngModel)]="searchCriteria.vegetarian"
+                            />
+                            Vegetarian
+                    </label>
+        </div>
+        <div class="col">
+            <label>
+                        <input type="checkbox"
+                            name="halal"
+                            [(ngModel)]="searchCriteria.halal"
+                            />
+                            Halal
+                    </label>
+        </div>
+        <div class="col">
+            <label>
+                        <input type="checkbox"
+                            name="bio"
+                            [(ngModel)]="searchCriteria.bio"
+                            />
+                            Bio
+                    </label>
+        </div>
+    </div>
+
+    <div class="search-container" *ngIf="filteredOffers.length > 0">
+        <div class="text-center">
+            <h2 style="color:aliceblue"> Search Results</h2>
+        </div>
+        <hr>
+
+        <div class="list-group">
+            <div class="search-results" infinite-scroll [infiniteScrollDistance]="1" [infiniteScrollUpDistance]="-10" [infiniteScrollThrottle]="10"
+                (scrolled)="getOffers()">
+                <a *ngFor="let offer of filteredOffers; let i = index" href="/offerdetails/{{offer._id}}" [attr.data-index]="i" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between row">
+                        <div class="col col-md-7">
+                            <h5 class="mb-1">{{ offer.title }}, <span>Price:</span> <span style="color:#4CAF50; font-size:24px;"> {{ offer.price }} € </span></h5>
+                            <span> <span>Published:</span> <strong> {{ offer.dateCreated  | date:'yMMMd' }}</strong></span>
+                            <br>
+                            <br>
+                            <div class="">
+                                <p class="mb-1"> <strong> Description: </strong> <br> {{ offer.description }}</p>
+                                <small><strong> Ingredients: </strong> <br> {{ offer.ingredients }}</small>
+                            </div>
+                        </div>
+                        <div class="col col-md-5">
+                            <img style="max-height:200px;" class="pull-right" id="{{offer._id}}" src="{{offer.imgUrl}}" alt="Food offer image">
+                            <!--<img style="max-height:200px;" id="offer._id" src="{{offer. this.displayImageUrl}}" alt="Food offer image">-->
+                        </div>
+                        <br>
+                    </div>
+
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>

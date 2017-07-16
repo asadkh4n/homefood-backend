@@ -53,7 +53,16 @@ export class CreateofferComponent implements OnInit {
   convertDate(date: any) : Date {
     if(!date) return;
     return new Date(date.year, date.month, date.day);
-  } 
+  }
+  createRandomOffer(event) {
+    let foodTitles = ["donor", "rice", "ramen"];
+    this.offer.title = `${foodTitles[Math.floor(Math.random()*foodTitles.length)]} ${Math.floor(Math.random()*100 + 1)}`;
+    this.offer.price = Math.floor(Math.random()*100 + 1);
+    this.offer.bio = Math.random() >= 0.5;
+    this.offer.vegan = Math.random() >= 0.5;
+    this.offer.vegetarian = Math.random() >= 0.5;
+    this.offer.halal = Math.random() >= 0.5;
+  }
   createOffer(event) {
 
     //reassigning date to Date object
