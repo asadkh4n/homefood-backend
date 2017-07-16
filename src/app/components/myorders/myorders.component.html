@@ -23,6 +23,7 @@
                 </div>
               </div>
             </div>
+
             <div #confirmedBlock *ngIf="offer.status=='Confirmed'; else elseBlock">
               <div class="wrapper">
                 <div id="leftconfirmed">
@@ -35,6 +36,7 @@
                 </div>
               </div>
             </div>
+
             <ng-template #elseBlock>
               <h5 class="mb-1">{{ offer.title }}, <span>Price:</span> <span style="color:#4CAF50; font-size:24px;"> {{ offer.price }} € </span></h5>
               <span> <small> Published: {{ offer.dateCreated | date:'yMMMd' }} </small> </span>
