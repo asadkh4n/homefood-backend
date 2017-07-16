@@ -63,19 +63,17 @@ export class MySearchComponent implements OnInit {
   }
 
   searchOffers($event, searchquery) {
-    this.filteredOffers = Object.assign([], this.offers).filter( (item) => {
-
-      let match:boolean = false;
-      let keys = Object.keys(searchquery);
+    this.filteredOffers = this.offers.filter( (item) => {
+      let match:boolean = true;
       match = searchquery.title == null || item.title.toLowerCase().indexOf(searchquery.title.toLowerCase()) > -1
       match = match && ( searchquery.bio == null ||  searchquery.bio == item.bio);
       match = match && ( searchquery.vegan == null ||  searchquery.vegan == item.vegan);
       match = match && ( searchquery.vegetarian == null ||  searchquery.vegetarian == item.vegetarian);
       match = match && ( searchquery.halal == null ||  searchquery.halal == item.halal);
-      return match
-              
+      return match          
     }
-   )
+   );
+  console.log(this.filteredOffers);
   }
 
   checkOfferID(id, query) {

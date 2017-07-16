@@ -27,10 +27,10 @@ export class OfferService {
 
     this.headers.append('Content-Type', 'application/json');
 
-    alert(this.headers.get("Authorization"));
+    //alert(this.headers.get("Authorization"));
 
     newOffer.user = this.currentUser.userId;
-
+    
     return this.http.post(this.apiURL, JSON.stringify(newOffer), {headers: this.headers})
       .map((response: Response) => response.json())
       .catch((response: Response) => Observable.throw(response.status))
