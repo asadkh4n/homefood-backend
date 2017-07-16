@@ -5,7 +5,7 @@ import { Title, DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 import { OfferService } from '../../services/offer.service';
 
-import { DatePipe } from '@angular/common';
+import { DatePipe, NgIf} from '@angular/common';
 import { Observable } from 'rxjs/RX';
 
 import { Http, Headers, Response } from '@angular/http';
@@ -13,6 +13,7 @@ import { Http, Headers, Response } from '@angular/http';
 //import { YesNoModalComponent } from './yes-no-modal/yes-no-modal.component';
 
 import { HostListener } from "@angular/core";
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-myoffers',
@@ -26,6 +27,8 @@ export class MyoffersComponent implements OnInit {
   throttle = 300;
   scrollDistance = 1;
 
+  opt: string;
+
   public displayImageUrl = "";
 
   constructor(private offerService: OfferService,
@@ -33,7 +36,8 @@ export class MyoffersComponent implements OnInit {
     private titleService: Title,
     private datePipe: DatePipe,
     private sanitizer: DomSanitizer,
-    private http: Http) {
+    private http: Http,
+    private modalService: NgbModal) {
     this.titleService.setTitle("My offers");
   }
 
@@ -57,7 +61,6 @@ export class MyoffersComponent implements OnInit {
 
       for (var i = 0; i < offers.length; i++) {
         this.offers.push(offers[i]);
-
         this.getImageUrl(offers[i]._id);
 
       }
@@ -78,17 +81,20 @@ export class MyoffersComponent implements OnInit {
   }
 
   deleteOffer(offerID, elementIndex) {
-    alert("Deleting " + offerID + "IND: " + elementIndex);
 
-    this.offerService.deleteOffer(offerID).subscribe(res => {
-        if(res.status == 200)
-        {
-          this.offers.splice(elementIndex,1);
-          //this.offers.find(x => x._id == offerID) .imgUrl = imgSrc;
+    if (confirm('Are you sure you want to delete the offer?')) {
+
+      this.offerService.deleteOffer(offerID).subscribe(res => {
+        if (res.status == 200) {
+          this.offers.splice(elementIndex, 1);
         }
-    });
-
+      });
+    } else {
+    }
   }
 
+  redirectToConfirmation(offerID) {
+    this.router.navigate(['/confirm-offer', offerID ]); 
+  }
 
 }

@@ -3,7 +3,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { JsonpModule } from '@angular/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 
@@ -22,10 +22,8 @@ import { CreateofferComponent } from './components/createoffer/createoffer.compo
 import { MyoffersComponent } from './components/myoffers/myoffers.component';
 import { TransactionConfirmationComponent } from './components/transactionconfirmation/transactionconfirmation.component';
 
-
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
-
 
 import { AuthGuard } from './guards/auth.guard';
 import { AuthenticationService } from './services/authentication.service';
@@ -38,8 +36,7 @@ import { FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
 import { OfferdetailsComponent } from './components/offerdetails/offerdetails.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { GivefeedbackComponent } from './components/givefeedback/givefeedback.component';
-import { MyordersComponent } from './components/myorders/myorders.component';
-
+import { ConfirmOfferComponent } from './components/confirm-offer/confirm-offer.component';
 
 @NgModule({
   declarations: [
@@ -56,8 +53,8 @@ import { MyordersComponent } from './components/myorders/myorders.component';
     OfferdetailsComponent,
     FeedbackComponent,
     TransactionConfirmationComponent,
-    GivefeedbackComponent,
-    MyordersComponent
+    ConfirmOfferComponent,
+    GivefeedbackComponent
       ],
   imports: [
     BrowserModule,
@@ -79,10 +76,10 @@ import { MyordersComponent } from './components/myorders/myorders.component';
     OfferService,
     DatePipe,
     FeedbackService,
-    OrderService
+    OrderService,
   ],
   bootstrap: [AppComponent],
-
+  //entryComponents: [YesNoModalComponent],
   exports: [
     FileSelectDirective
   ]

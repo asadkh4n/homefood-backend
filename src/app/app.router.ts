@@ -1,6 +1,6 @@
 import { LandingpageComponent } from './components/landingpage/landingpage.component';
-import { ModuleWithProviders} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import { ModuleWithProviders } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AuthGuard } from './guards/auth.guard'
 
@@ -13,8 +13,10 @@ import { CreateofferComponent } from './components/createoffer/createoffer.compo
 import { MyoffersComponent } from './components/myoffers/myoffers.component';
 import { MyordersComponent } from './components/myorders/myorders.component';
 import { OfferdetailsComponent } from './components/offerdetails/offerdetails.component';
+import { ConfirmOfferComponent } from './components/confirm-offer/confirm-offer.component';
 import { GivefeedbackComponent } from './components/givefeedback/givefeedback.component';
 import { TransactionConfirmationComponent } from './components/transactionconfirmation/transactionconfirmation.component';
+
 
 
 const appRoutes: Routes = [
@@ -53,6 +55,11 @@ const appRoutes: Routes = [
     {
         path: 'offerdetails/:id',
         component: OfferdetailsComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'confirm-offer/:id',
+        component: ConfirmOfferComponent,
         canActivate: [AuthGuard]
     },
     {

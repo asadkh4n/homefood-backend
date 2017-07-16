@@ -14,4 +14,5 @@ export class Offer {
     _id: String;
     place: String;
     imgUrl: String;
+    status: String;
 }
