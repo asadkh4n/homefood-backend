@@ -1,4 +1,5 @@
 export class Order {
+    _id: String;
     offer: String;
     paymentOption: String;
     price: Number;

@@ -24,6 +24,8 @@ export class MyordersComponent implements OnInit {
   private offers: any[] = [];
   private myorders: any[] = [];
 
+  orderIDs : any[] = [];
+
   loadedElementsNumOffers = 0;
   loadedElementsNumOrders = 0;
 
@@ -33,7 +35,7 @@ export class MyordersComponent implements OnInit {
               private offerService: OfferService,
               private router: Router,
               private titleService: Title) {
-    this.titleService.setTitle("My orders");
+    this.titleService.setTitle('My orders');
   }
 
   ngOnInit() {
@@ -60,8 +62,10 @@ export class MyordersComponent implements OnInit {
     this.offerService.getOffers(this.loadedElementsNumOffers).subscribe(offers => {
       for (let i = 0; i < offers.length; i++) {
         for (let j = 0; j < this.orders.length; j++) {
-          if (offers[i]._id == this.orders[j].offer && (offers[i].status === 'Ordered' || offers[i].status === 'Confirmed')) {
+          if (offers[i]._id == this.orders[j].offer) {
             this.offers.push(offers[i]);
+            this.orderIDs.push(this.orders[j]._id);
+
             this.myorders.push(this.orders[j]);
             this.getImageUrl(offers[i]._id);
           } else {
@@ -84,8 +88,7 @@ export class MyordersComponent implements OnInit {
   }
 
   cancelOrder(orderID, elementIndex) {
-    //alert('Canceling ' + orderID + "IND: " + elementIndex);
-
+    alert(orderID);
     this.orderService.cancelOrder(orderID).subscribe(res => {
       if (res.status == 200) {
         this.orders.splice(elementIndex,1);
