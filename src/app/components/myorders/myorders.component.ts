@@ -82,7 +82,7 @@ export class MyordersComponent implements OnInit {
   }
 
   cancelOrder(orderID, elementIndex) {
-    alert('Canceling ' + orderID + "IND: " + elementIndex);
+    //alert('Canceling ' + orderID + "IND: " + elementIndex);
 
     this.orderService.cancelOrder(orderID).subscribe(res => {
       if (res.status == 200) {
