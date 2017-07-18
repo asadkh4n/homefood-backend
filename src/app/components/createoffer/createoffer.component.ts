@@ -22,6 +22,7 @@ import * as myGlobals from '../../../globals';
 export class CreateofferComponent implements OnInit {
   public uploader:FileUploader = new FileUploader({url: "http://localhost:3000/api/offer/pictures"});
 
+  minDate:any;
   offer: Offer;
   deliveryTypes = [
         "Seller will deliver the food",
@@ -100,6 +101,11 @@ export class CreateofferComponent implements OnInit {
   }
 
   ngOnInit() {
+    var currentTime = new Date()
+    var month = currentTime.getMonth() + 1
+    var day = currentTime.getDate()
+    var year = currentTime.getFullYear()
+    this.minDate =  {year: year, month: month, day: day};
   }
 
   ngAfterViewChecked() {
