@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthenticationService } from './../../services/authentication.service';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { AuthenticationService } from './../../services/authentication.service';
 export class LoginComponent implements OnInit {
   username: string;
   password: string;
-  constructor(private authenticationService: AuthenticationService, private router: Router) { }
+  constructor(private authenticationService: AuthenticationService, private router: Router, private toastr: ToastsManager) { }
 
   ngOnInit() {
     // reset login status
@@ -25,5 +26,6 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/home']);
         }
       });
+
   }
 }
