@@ -30,7 +30,7 @@ export class FeedbackService {
     if (!this.headers.get("Content-Type"))
       this.headers.append('Content-Type', 'application/json');
 
-    newFeedback.user = this.currentUser.userId;
+    //newFeedback.user = this.currentUser.userId;
 
     return this.http.post(this.apiURL, JSON.stringify(newFeedback), { headers: this.headers })
 

@@ -1,8 +1,8 @@
 <div class="container" align="left">
   <br />
 
-<td *ngIf="sum">  <h5>Overall rating of <i> {{username}}: {{sum}}</i></h5></td>
-<td *ngIf="sum"><h5>Comments for <i>{{username}}</i></h5></td>
+<h5>Overall rating of <i> {{username}}: {{sum}}</i></h5>
+<h5>Comments for <i>{{username}}</i></h5>
   <table>
    <tr *ngFor="let feedback of feedbacks1">
     <td><i>{{ feedback.comment }}</i></td>
