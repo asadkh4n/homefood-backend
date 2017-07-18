@@ -23,6 +23,7 @@ export class MyordersComponent implements OnInit {
   private orders: any[] = [];
   private offers: any[] = [];
   private myorders: any[] = [];
+  private currentUser;
 
   orderIDs : any[] = [];
 
@@ -39,6 +40,7 @@ export class MyordersComponent implements OnInit {
   }
 
   ngOnInit() {
+    
     if (window.pageYOffset == 0) {
       this.getOffersFromOrders();
     } else {
@@ -50,6 +52,7 @@ export class MyordersComponent implements OnInit {
 
   getOrders() {
     this.orderService.getOrders(this.loadedElementsNumOrders).subscribe(orders => {
+      console.log(orders.length);
       for (let i = 0; i < orders.length; i++) {
         this.orders.push(orders[i]);
       }
@@ -59,17 +62,17 @@ export class MyordersComponent implements OnInit {
 
   getOffersFromOrders() {
     this.getOrders();
-    this.offerService.getOffers(this.loadedElementsNumOffers).subscribe(offers => {
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    console.log(this.currentUser.userId + " sdlkmfas");
+    this.offerService.getAllOffers(this.loadedElementsNumOffers).subscribe(offers => {
       for (let i = 0; i < offers.length; i++) {
         for (let j = 0; j < this.orders.length; j++) {
-          if (offers[i]._id == this.orders[j].offer) {
+          if (offers[i]._id == this.orders[j].offer && this.orders[j].user == this.currentUser.userId) {
             this.offers.push(offers[i]);
             this.orderIDs.push(this.orders[j]._id);
-
             this.myorders.push(this.orders[j]);
             this.getImageUrl(offers[i]._id);
           } else {
-            console.log(offers[i].status);
           }
         }
       }
